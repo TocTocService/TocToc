@@ -37,7 +37,7 @@ authRoutes.post("/signup", (req, res, next) => {
   if (username === "" || password === "" || email === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
-  }4
+  }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
