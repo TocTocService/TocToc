@@ -68,6 +68,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// default value for title local
+app.use((req,res,next) => {
+  res.locals.title = 'Uber Laundry';
+  res.locals.user = req.user;
+  res.locals.message = req.flash("error");
+  next();
+}) 
 
 // Enable authentication using session + passport
 app.use(session({
