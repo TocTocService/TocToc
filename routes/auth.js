@@ -7,7 +7,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
+//login
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login", { "message": req.flash("error") });
 });
@@ -19,18 +19,21 @@ authRoutes.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
+
+//signup
 authRoutes.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
+
 authRoutes.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const rol = req.body.role;
-  if (username === "" || password === "") {
+  const {username, password, email} = req.body;
+  const isToc = Boolean(req.body.isToc);
+
+  if (username === "" || password === "" || email === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
-  }
+  }4
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
@@ -44,7 +47,8 @@ authRoutes.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      role:"teacher"
+      email,
+      isToc,
     });
 
     newUser.save((err) => {
@@ -57,6 +61,8 @@ authRoutes.post("/signup", (req, res, next) => {
   });
 });
 
+
+//signup
 authRoutes.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
