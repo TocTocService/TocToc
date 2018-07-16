@@ -1,0 +1,18 @@
+<h2>Encuentra tu TOC'leaner</h2>
+
+<ul>
+  {{#each cleaners}}
+    <li>
+      <h3> {{ this.username }} </h3>
+      <p> Precio: {{ this.fee }}€</p>
+
+      <a href="/scheduleService/{{ this._id }}">
+        Schedule a service
+      </a>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/profile">
+  Back to profile
+</a>
