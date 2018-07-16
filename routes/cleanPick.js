@@ -72,7 +72,37 @@ cleanPickRoutes.post('/cleaners', (req, res, next) => {
 
 
 cleanPickRoutes.get("/scheduleService/:id", (req, res, next) => {
-  res.render("userpage/cleaner-profile", { "message": req.flash("error") });
+  const cleanerId = req.params.id;
+
+  User.findById(cleanerId, (err, theUser) => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    res.render('userpage/cleaner-profile', {
+      theCleaner: theUser
+    });
+  });
+});
+
+cleanPickRoutes.post('/scheduleService', (req, res, next) => {
+  const serviceInfo = {
+    serviceDate: req.body.serviceDate,
+    cleaner: req.body.cleanerId,
+    user: req.user._id
+  };
+
+  const theService = new PickDate(serviceInfo);
+
+  theService.save((err) => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    res.redirect('/profile');
+  });
 });
 
 module.exports = cleanPickRoutes;
