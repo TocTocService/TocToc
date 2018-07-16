@@ -34,6 +34,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Enable authentication using session + passport
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(flash());
+
+require('./passport')(app);
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -59,24 +73,15 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
   
-
 // default value for title local
-app.use((req, res, next) => {
+app.use((req,res,next) => {
   res.locals.title = 'TocToc';
   res.locals.user = req.user;
-  //res.locals.message = req.flash(error);
+  // res.locals.message = req.flash("error");
   next();
-});
+}) 
 
-// Enable authentication using session + passport
-app.use(session({
-  secret: 'irongenerator',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore( { mongooseConnection: mongoose.connection })
-}))
-app.use(flash());
-require('./passport')(app);
+
     
 
 const index = require('./routes/index');
@@ -89,5 +94,7 @@ const rating = require('./routes/rating');
 app.use('/', rating);
 
       
+const cleanPickRouter = require('./routes/cleanPick');
+app.use('/', cleanPickRouter);
 
 module.exports = app;
