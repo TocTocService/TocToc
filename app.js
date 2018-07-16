@@ -89,6 +89,10 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
+
+const rating = require('./routes/rating');
+app.use('/', rating);
+
       
 const cleanPickRouter = require('./routes/cleanPick');
 app.use('/', cleanPickRouter);
