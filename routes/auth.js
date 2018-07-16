@@ -13,13 +13,15 @@ authRoutes.get("/login", (req, res, next) => {
 });
 
 authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/profile",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
 }));
 
-// authRoutes.get("/profile", )
+authRoutes.get("/profile", (req, res, next) => {
+  res.render("userpage/profile")
+})
 
 
 //signup
