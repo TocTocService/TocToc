@@ -2,16 +2,18 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const User = require('../models/User');
-// const Rating = require('../models/Rating');
-// const PickDate = require('../models/PickDate');
+const bcrypt = require('bcrypt');
 
 //const dbName = process.env.DBURL
 mongoose.connect('mongodb://localhost/toctoc',{useMongoClient:true});
 
+const salt = bcrypt.genSaltSync(10);
+const hashPass = bcrypt.hashSync('1234', salt);
+
 const users = [
   {
     username: "annahogberg",
-    password: "1234",
+    password: hashPass,
     email: "a@gmail.com",
     address: "Buganvilla 6",
     hours: "Morning",
@@ -20,7 +22,7 @@ const users = [
   },
   {
     username: "juan",
-    password: "1234",
+    password: hashPass,
     email: "j@gmail.com",
     hours: "Afternoon",
     isToc: false,
@@ -28,7 +30,7 @@ const users = [
   },
   {
     username: "paulagarcia",
-    password: "1234",
+    password: hashPass,
     email: "p@gmail.com",
     address: "Chopera 14",
     hours: "Afternoon",
@@ -38,7 +40,7 @@ const users = [
   },
   {
     username: "malmarc",
-    password: "1234",
+    password: hashPass,
     email: "mm@gmail.com",
     hours: "Always",
     isToc: true,
