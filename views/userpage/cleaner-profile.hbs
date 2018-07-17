@@ -1,17 +1,17 @@
-<h2> TOC'leaner {{theCleaner.name}}</h2>
+<h2> TOC'leaner {{cleaner.username}}</h2>
 
 <p>
   Precio:
-  <b> {{ theCleaner.fee }}€ </b>
+  <b> {{ cleaner.fee }}€ </b>
 </p>
 
 
 <h3>
   Contrata servicio con
-  <i> {{ theCleaner.name }} </i>
+  <i> {{ cleaner.username }} </i>
 </h3>
 
-<form action="/scheduleService" method="post">
+<form action="/scheduleServiceForm" method="post">
   <div>
     <label for="service-date-input">
       Fecha del servicio:
@@ -19,7 +19,7 @@
     <input type="date" name="serviceDate" id="service-date-input">
   </div>
 
-  <input type="hidden" name="cleanerId" value="{{ theCleaner._id }}">
+  <input type="hidden" name="cleanerId" value="{{ cleaner._id }}">
 
   <button>Contrata</button>
 </form>

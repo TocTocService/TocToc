@@ -19,9 +19,6 @@ authRoutes.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-authRoutes.get("/profile", (req, res, next) => {
-  res.render("userpage/profile")
-})
 
 
 //signup

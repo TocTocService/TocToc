@@ -14,6 +14,7 @@ cleanPickRoutes.use((req, res, next) => {
 
 cleanPickRoutes.get('/profile', (req, res, next) => {
   let query;
+
   
   if (req.user.isToc) {
     query = { cleaner: req.user._id };
@@ -21,21 +22,15 @@ cleanPickRoutes.get('/profile', (req, res, next) => {
     query = { user: req.user._id };
   }
   
+  console.log(query)
+
   PickDate
   .find(query)
-  .populate('user', 'name')
-  .populate('cleaner', 'name')
+  .populate('user')
+  .populate('cleaner')
   .sort('serviceDate')
-  .exec((err, serviceDocs) => {
-    if (err) {
-      next(err);
-      return;
-    }
-    
-    res.render('/profile', {
-      pickups: serviceDocs
-    });
-  });
+  .then(services => res.render('userpage/profile', {services}))
+  .catch(err => console.log(err));
 });
 
 cleanPickRoutes.get('/cleaners', (req, res, next) => {
@@ -73,27 +68,31 @@ cleanPickRoutes.post('/cleaners', (req, res, next) => {
 
 cleanPickRoutes.get("/scheduleService/:id", (req, res, next) => {
   const cleanerId = req.params.id;
+  
 
-  User.findById(cleanerId, (err, theUser) => {
+  User.findById(cleanerId, (err, cleaner) => {
     if (err) {
       next(err);
       return;
     }
 
     res.render('userpage/cleaner-profile', {
-      theCleaner: theUser
+      cleaner
     });
   });
 });
 
-cleanPickRoutes.post('/scheduleService', (req, res, next) => {
+
+
+cleanPickRoutes.post('/scheduleServiceForm', (req, res, next) => {
   const serviceInfo = {
     serviceDate: req.body.serviceDate,
     cleaner: req.body.cleanerId,
-    user: req.user._id
+    user: req.user._id,
   };
 
   const theService = new PickDate(serviceInfo);
+  // console.log(theService)
 
   theService.save((err) => {
     if (err) {
