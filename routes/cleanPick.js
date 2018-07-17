@@ -25,6 +25,8 @@ cleanPickRoutes.get("/cleaners", (req, res, next) => {
 });
 
 cleanPickRoutes.post("/cleaners", (req, res, next) => {
+
+  
   const serviceInfo = {
     serviceDate: req.body.serviceDate,
     cleaner: req.body.cleanerId,

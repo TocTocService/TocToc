@@ -9,20 +9,19 @@
     El precio por hora es: <b>{{ user.fee }}€</b>
   </p>
 
-  <h4>Servicios por confirmar</h4>
+
+  <h4>Servicios:</h4>
 {{#each services}}
       <li>
         <h4> {{ serviceDate }} </h4>
 
         <ul>
-          <li> <b>Para</b>: {{ user.username }} </li>
-          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+          <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
         </ul>
-        {{!-- {{if PickDate.confirm}}
-        <li><a href="/user/{{this._id}}">Ver ficha</a></li>
-        {{else}} --}}
+
+        {{#ifEquals this.confirm "Pendiente"}}
         <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
-        {{!-- {{/if}} --}}
+        {{/ifEquals}}
       </li>
   {{/each}}
   
@@ -39,10 +38,12 @@
         <ul>
           <li> <b>Para</b>: {{ user.username }} </li>
           <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+          <li> <b>Estado</b>: {{ confirm }} </li>
+          
         </ul>
-        {{#if pastDate}}
+        {{!-- {{#if pastDate}} --}}
         <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </li>
   {{/each}}
 {{/if}}

@@ -14,13 +14,15 @@ profile.get('/profile', (req, res, next) => {
     query = { user: req.user._id };
   }
   
-
   PickDate
   .find(query)
   .populate('user')
   .populate('cleaner')
   .sort('serviceDate')
-  .then(services => res.render('userpage/profile', {services}))
+  .then(services => {
+    
+    res.render('userpage/profile', {services})
+  })
   .catch(err => console.log(err));
 });
 
@@ -40,17 +42,29 @@ profile.post('/edit/:id', (req, res) => {
   });
 })
 
-
 //confirmar servicio desde cleaner
 profile.get('/confirm/:id', (req, res, next) =>{
   let confirmId = req.params.id;
 
-  PickDate.findOneAndUpdate({_id: confirmId}, {confirm:true}, {new:true}).then(user => {
+  PickDate.findOneAndUpdate({_id: confirmId}, {confirm: "Confirmado"}, {new:true}).then(user => {
     res.redirect("/profile");
   })
   .catch((err)=> {
     console.log(err);
   })
 });
+
+profile.get('/public/:id', (req, res, next) =>{
+  let id = req.params.id;
+
+ 
+  User.findById(id).then(ficha => {
+    res.render("userpage/public", {ficha});
+  })
+  .catch((err)=> {
+    console.log(err);
+  })
+});
+
 
 module.exports = profile;

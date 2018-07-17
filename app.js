@@ -72,6 +72,18 @@ hbs.registerHelper('ifUndefined', (value, options) => {
       return options.fn(this);
   }
 });
+
+hbs.registerHelper('ifEquals', (value1, value2, options) => {
+  if (arguments.length < 2)
+      throw new Error("Handlebars Helper ifEquals needs 1 parameter");
+  if ( value1 !== value2 ) {
+      return options.inverse(this);
+  } else {
+      return options.fn(this);
+  }
+
+});
+
   
 // default value for title local
 app.use((req,res,next) => {

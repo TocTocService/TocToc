@@ -10,7 +10,8 @@ const userSchema = new Schema(
     address: {type: String},
     isToc: {type: Boolean, default: false},
     availability: {type: Boolean, default: true},
-    fee: { type: Number, default: null }
+    fee: { type: Number, default: null },
+    description: {type: String}
   });
 
 const User = mongoose.model("User", userSchema);
