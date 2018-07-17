@@ -1,0 +1,27 @@
+<h2>Encuentra tu TOC'leaner</h2>
+
+<ul>
+  {{#each cleaners}}
+    <li>
+      <h3> {{ this.username }} </h3>
+      <p> Precio: {{ this.fee }}€</p>
+
+      <form action="/cleaners" method="post">
+  <div>
+    <label for="service-date-input">
+      Fecha del servicio:
+    </label>
+    <input type="date" name="serviceDate" id="service-date-input">
+  </div>
+
+  <input type="hidden" name="cleanerId" value="{{ this._id }}">
+
+  <button>Contrata</button>
+</form>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/profile">
+  Vuelve a tu perfil
+</a>

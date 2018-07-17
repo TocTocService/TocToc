@@ -16,7 +16,6 @@ const users = [
     password: hashPass,
     email: "a@gmail.com",
     address: "Buganvilla 6",
-    hours: "Morning",
     isToc: false,
     availability: false //req o no?
   },
@@ -24,7 +23,6 @@ const users = [
     username: "juan",
     password: hashPass,
     email: "j@gmail.com",
-    hours: "Afternoon",
     isToc: false,
     availability: false
   },
@@ -33,7 +31,6 @@ const users = [
     password: hashPass,
     email: "p@gmail.com",
     address: "Chopera 14",
-    hours: "Afternoon",
     isToc: true,
     availability: true,
     fee: 15
@@ -42,7 +39,6 @@ const users = [
     username: "malmarc",
     password: hashPass,
     email: "mm@gmail.com",
-    hours: "Always",
     isToc: true,
     availability: true,
     fee: 10

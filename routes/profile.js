@@ -24,8 +24,21 @@ profile.get('/profile', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
-profile.get('/edit', (req, res) =>{
+profile.get('/edit', (req, res, next) =>{
   res.render('userpage/edit');
+});
+
+profile.get('/confirm/:id', (req, res, next) =>{
+  let confirmId = req.params.id;
+
+  
+
+  PickDate.findOneAndUpdate({_id: confirmId}, {confirm:true}, {new:true}).then(user => {
+    res.redirect("/profile");
+  })
+  .catch((err)=> {
+    console.log(err);
+  })
 });
 
 module.exports = profile;

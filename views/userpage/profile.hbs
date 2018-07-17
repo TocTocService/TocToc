@@ -1,9 +1,36 @@
 <h1>{{title}}</h1>
 <p>Hola {{user.username}}</p>
 
+
+{{#if user.isToc}}
+  <h3> INFO sobre tu servicio </h3>
+
+  <p>
+    El precio por hora es: <b>{{ user.fee }}€</b>
+  </p>
+
+  <h4>Servicios por confirmar</h4>
+{{#each services}}
+      <li>
+        <h4> {{ serviceDate }} </h4>
+
+        <ul>
+          <li> <b>Para</b>: {{ user.username }} </li>
+          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+        </ul>
+        {{!-- {{if PickDate.confirm}}
+        <li><a href="/user/{{this._id}}">Ver ficha</a></li>
+        {{else}} --}}
+        <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
+        {{!-- {{/if}} --}}
+      </li>
+  {{/each}}
+  
+{{else}}
 <h4>Servicios pendientes:</h4>
 
 <ul>
+
 {{#if services}}
   {{#each services}}
       <li>
@@ -20,23 +47,5 @@
   {{/each}}
 {{/if}}
 </ul>
-
-{{#if user.isToc}}
-  <h3> INFO sobre tu servicio </h3>
-
-  <p>
-    El precio por hora es: <b>{{ user.fee }}€</b>
-  </p>
-{{else}}
-  <h3> Quieres hacerte TOC'leaner? </h3>
-
-  <form action="/cleaners" method="post">
-    <div>
-      <label for="fee-input"> Precio por hora</label>
-      <input type="number" name="fee" id="fee-input">
-    </div>
-
-    <button> Hazte TOC'leaner </button>
-  </form>
 {{/if}}
 <a href='/edit'>Edita tu perfil</a>
