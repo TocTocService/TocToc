@@ -3,9 +3,10 @@ const profile = express.Router();
 const PickDate = require("../models/PickDate");
 const User = require('../models/User');
 
+
+//poner servicios en perfil/historial
 profile.get('/profile', (req, res, next) => {
   let query;
-
   
   if (req.user.isToc) {
     query = { cleaner: req.user._id };
@@ -13,7 +14,6 @@ profile.get('/profile', (req, res, next) => {
     query = { user: req.user._id };
   }
   
-  console.log(query)
 
   PickDate
   .find(query)
@@ -24,14 +24,26 @@ profile.get('/profile', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
-profile.get('/edit', (req, res, next) =>{
-  res.render('userpage/edit');
+// Editar datos profile
+profile.get('/edit/:id', (req, res) =>{
+  User.findById(req.params.id).then(user => {
+    res.render('userpage/edit',{user});
+  });
 });
 
+profile.post('/edit/:id', (req, res) => {
+  const fee = req.body.fee ? req.body.fee : 0;
+  const {username, name, email, address} = req.body;
+  User.findByIdAndUpdate(req.params.id,{username, name, email, address, fee})
+  .then( user => {
+    res.redirect('/profile');
+  });
+})
+
+
+//confirmar servicio desde cleaner
 profile.get('/confirm/:id', (req, res, next) =>{
   let confirmId = req.params.id;
-
-  
 
   PickDate.findOneAndUpdate({_id: confirmId}, {confirm:true}, {new:true}).then(user => {
     res.redirect("/profile");

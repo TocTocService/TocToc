@@ -1,43 +1,43 @@
 <form id="rating" method="post" action="/rates">
   <fieldset class="rating">
     <legend>Rapidez</legend>
-    <input name="rating" type="radio" id="speed1" value="5" on="change:rating.submit" />
-    <label for="rating" title="1 stars">☆</label>
+    <input name="speed" type="radio" id="speed1" value="5" on="change:rating.submit" />
+    <label for="speed" title="1 stars">☆</label>
 
-    <input name="rating" type="radio" id="speed2" value="4" on="change:rating.submit" />
-    <label for="rating" title="2 stars">☆</label>
+    <input name="speed" type="radio" id="speed2" value="4" on="change:rating.submit" />
+    <label for="speed" title="2 stars">☆</label>
 
-    <input name="rating" type="radio" id="speed3" value="3" on="change:rating.submit" />
-    <label for="rating" title="3 stars">☆</label>
+    <input name="speed" type="radio" id="speed3" value="3" on="change:rating.submit" />
+    <label for="speed" title="3 stars">☆</label>
 
-    <input name="rating" type="radio" id="speed4" value="2" on="change:rating.submit" checked="checked"/>
-    <label for="rating" title="4 stars">☆</label>
+    <input name="speed" type="radio" id="speed4" value="2" on="change:rating.submit" checked="checked"/>
+    <label for="speed" title="4 stars">☆</label>
 
-    <input name="rating" type="radio" id="speed5" value="1" on="change:rating.submit"/>
-    <label for="rating" title="5 stars">☆</label>
+    <input name="speed" type="radio" id="speed5" value="1" on="change:rating.submit"/>
+    <label for="speed" title="5 stars">☆</label>
   </fieldset>
   <fieldset class="rating">
     <legend>Satisfacción</legend>
-    <input name="rating1" type="radio" id="sat1" value="5" on="change:rating.submit"/>
-    <label for="rating1" title="1 stars">☆</label>
+    <input name="satisfaction" type="radio" id="sat1" value="5" on="change:rating.submit"/>
+    <label for="satisfaction" title="1 stars">☆</label>
 
-    <input name="rating1" type="radio" id="sat2" value="4" on="change:rating.submit"/>
-    <label for="rating1" title="2 stars">☆</label>
+    <input name="satisfaction" type="radio" id="sat2" value="4" on="change:rating.submit"/>
+    <label for="satisfaction" title="2 stars">☆</label>
 
-    <input name="rating1" type="radio" id="sat3" value="3" on="change:rating.submit" checked="checked"/>
-    <label for="rating1" title="3 stars">☆</label>
+    <input name="satisfaction" type="radio" id="sat3" value="3" on="change:rating.submit" checked="checked"/>
+    <label for="satisfaction" title="3 stars">☆</label>
 
-    <input name="rating1" type="radio" id="sat4" value="2" on="change:rating.submit"/>
-    <label for="rating1" title="4 stars">☆</label>
+    <input name="satisfaction" type="radio" id="sat4" value="2" on="change:rating.submit"/>
+    <label for="satisfaction" title="4 stars">☆</label>
 
-    <input name="rating1" type="radio" id="sat5" value="1" on="change:rating.submit"/>
-    <label for="rating1" title="5 stars">☆</label>
+    <input name="satisfaction" type="radio" id="sat5" value="1" on="change:rating.submit"/>
+    <label for="satisfaction" title="5 stars">☆</label>
   </fieldset>
   {{!-- {{#unless user.isToc}} --}}
-  <label for="recommend">Recomendarías a {{user.username}}</label>
+  <label for="recommendation">Recomendarías a {{user.username}}</label>
   <div>
-    <input type="radio" name="recommend" value="yes" checked="checked"> YES<br>
-    <input type="radio" name="recommend" value="no"> NO<br>
+    <input type="radio" name="recommendation" value="yes" checked="checked"> YES<br>
+    <input type="radio" name="recommendation" value="no"> NO<br>
   </div>
   {{!-- {{/unless}} --}}
   <button>Enviar</button>

@@ -40,12 +40,12 @@
           <li> <b>Para</b>: {{ user.username }} </li>
           <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
         </ul>
-        {{!-- {{if pastDate}} --}}
-        <li><a href="/rates">Valora al TOC'leaner</a></li>
-        {{!-- {{/if}} --}}
+        {{#if pastDate}}
+        <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
+        {{/if}}
       </li>
   {{/each}}
 {{/if}}
 </ul>
 {{/if}}
-<a href='/edit'>Edita tu perfil</a>
+<a href='/edit/{{user.id}}'>Edita tu perfil</a>

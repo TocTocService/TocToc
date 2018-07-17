@@ -1,21 +1,27 @@
 <h2>Edita tu perfil</h2>
 
-<form action="/edit" method="POST" id="form-container">
+<form action="/edit/{{user.id}}" method="POST" id="form-container">
   <label for="username">Usuario</label>
-  <input id="username" type="text" name="username" placeholder="{{user.username}}">
-
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="{{user.email}}">
-  <br><br>
-
-  <label for="password">Contraseña</label>
-  <input id="password" type="password" name="password" placeholder="{{user.password}}">
+  <input id="username" type="text" name="username" value="{{user.username}}">
   <br><br>
   
-  <label for="address">Dirección</label>
-  <input id="address" type="text" name="address" placeholder="C/Casalimpia, 6">
+  <label for="name">Nombre</label>
+  <input id="name" type="text" name="name" value="{{user.name}}">
   <br><br>
+
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" value="{{user.email}}">
+  <br><br>
+  
+  {{#if user.isToc}}
+    <label for="fee">Tarifa</label>
+    <input id="fee" type="text" name="fee" value="{{user.fee}}">
+    <br><br>
+  {{else}}
+  <label for="address">Dirección</label>
+  <input id="address" type="text" name="address" value="C/Casalimpia, 6">
+  <br><br>
+  {{/if}}
 
   <div class="form-group">
     <label for="photo">Upload your avatar</label>

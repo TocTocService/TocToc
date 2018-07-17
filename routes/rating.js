@@ -10,46 +10,24 @@ rating.use((req, res, next) => {
   res.redirect('/');
 })
 
-rating.get('/rates', (req, res, next) => {
-  let query;
-
-  if(req.user.isToc){
-    query = {cleaner: req.user._id}
-  } else {
-    query = {user: req.user._id}
-  }
-
-  Rating
-    .find(query)
-    .populate('user', 'name')
-    .populate('cleaner', 'name')
-    .then(pickupDocs => {
-      console.log(pickupDocs)
-      res.render('rates' , {
-        pickups: pickupDocs
-      });
-    })
-    .catch( err => next(err))
-    
-      
-
+rating.get('/rates/:id', (req, res) => {
+  User.findById(req.params.id).then(rate => {
+    res.render('rates',{rate});
+  });     
 });
 
-rating.post('/rates', (req, res, next) => {
-  const userId = req.user._id;
-  const rateInfo = {
-    fee: req.body.fee,
-    isLaunderer: true
-  };
+rating.post('/rates/:id', (req, res) => {
+  const {speed, satisfaction, recommendation} = req.body;
+  console.log(speed)
+  console.log(recommendation)
+  Rating.create({
+    speed: {type: Number, enum: [1, 2, 3, 4, 5]},
+    satisfaction: {type: Number, enum: [1, 2, 3, 4, 5]},
+    recommendation: {type: String, enum: ["Yes", "No"]}
+  })
 
-  User.findByIdAndUpdate(userId, rateInfo, (err, theUser) => {
-    if (err) {
-      next(err);
-      return;
-    }
-
-    req.session.currentUser = theUser;
-
+  Rating.findByIdAndUpdate(req.params.id,{speed, satisfaction, recommendation})
+  .then( rate => {
     res.redirect('/profile');
   });
 });
