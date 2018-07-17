@@ -1,16 +1,18 @@
 
-{{#if user.isToc}}
+{{#if ficha.isToc}}
   <p>Usuario: {{ ficha.username }} </p>
   <p>Nombre: {{ ficha.name }} </p>
   <p>Dirección: {{ficha.address}}</p>
-  {{!-- <p>Tarifa: {{user.fee}}€</p> --}}
+  <p>Tarifa: {{ficha.fee}}€</p>
   <p>Descripción: {{ficha.description}}</p>
+  <p>Valoración media: {{totalRate}}</p>
 
 {{else}}
   <p>Usuario: {{ ficha.username }} </p>
   <p>Nombre: {{ ficha.name }} </p>
-  <p>Tarifa: {{ficha.fee}}€</p>
+  {{!-- <p>Tarifa: {{ficha.fee}}€</p> --}}
   <p>Descripción: {{ficha.description}}</p>
+  <p>Dirección: {{ficha.address}}</p>
   {{!-- <p>Valoración: {{ficha.description}}</p> --}}
 </ul>
 {{/if}}

@@ -20,14 +20,12 @@ profile.get('/profile', (req, res, next) => {
   Rating
   .find(query)
   .then( data => {
-    console.log(data)
     data.forEach((e) => {
       totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
       return totalRate;
     })
   })
-
-  
+ 
   PickDate
   .find(query)
   .populate('user')
@@ -67,10 +65,27 @@ profile.get('/confirm/:id', (req, res, next) =>{
 
 profile.get('/public/:id', (req, res, next) =>{
   let id = req.params.id;
+  let query;// Esto está repetido en la vista de profile OJO
+  
+  if (req.user.isToc) {
+    query = { cleaner: req.user._id };
+  } else {
+    query = { user: req.user._id };
+  }
 
+  let totalRate = 0; 
+
+  Rating
+  .find(query)
+  .then( data => {
+    data.forEach((e) => {
+      totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
+      return totalRate;
+    })
+  })
  
   User.findById(id).then(ficha => {
-    res.render("userpage/public", {ficha});
+    res.render("userpage/public", {ficha, totalRate});
   })
   .catch((err)=> {
     console.log(err);
