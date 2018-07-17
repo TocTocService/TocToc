@@ -12,6 +12,10 @@
   <label for="email">Email</label>
   <input id="email" type="email" name="email" value="{{user.email}}">
   <br><br>
+
+  <label for="description">Descripción</label>
+  <textarea id="description" type="text" name="description" value="{{user.description}}" placeholder="Escribe algo sobre tí :-)"></textarea>
+  <br><br>
   
   {{#if user.isToc}}
     <label for="fee">Tarifa</label>
@@ -24,7 +28,7 @@
   {{/if}}
 
   <div class="form-group">
-    <label for="photo">Upload your avatar</label>
+    <label for="photo">Sube una foto de perfil ;-)</label>
     <input type="file" name="photo">    
   </div>
 

@@ -2,9 +2,10 @@ const express = require("express");
 const profile = express.Router();
 const PickDate = require("../models/PickDate");
 const User = require('../models/User');
+const Rating = require('../models/Rating');
 
 
-//poner servicios en perfil/historial
+// Poner servicios en perfil/historial
 profile.get('/profile', (req, res, next) => {
   let query;
   
@@ -13,14 +14,26 @@ profile.get('/profile', (req, res, next) => {
   } else {
     query = { user: req.user._id };
   }
-  
 
+  let totalRate = 0;
+
+  Rating
+  .find(query)
+  .then( data => {
+    console.log(data)
+    data.forEach((e) => {
+      totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
+      return totalRate;
+    })
+  })
+
+  
   PickDate
   .find(query)
   .populate('user')
   .populate('cleaner')
   .sort('serviceDate')
-  .then(services => res.render('userpage/profile', {services}))
+  .then(services => res.render('userpage/profile', {services, totalRate}))
   .catch(err => console.log(err));
 });
 
@@ -33,15 +46,14 @@ profile.get('/edit/:id', (req, res) =>{
 
 profile.post('/edit/:id', (req, res) => {
   const fee = req.body.fee ? req.body.fee : 0;
-  const {username, name, email, address} = req.body;
-  User.findByIdAndUpdate(req.params.id,{username, name, email, address, fee})
+  const {username, name, email, address, description} = req.body;
+  User.findByIdAndUpdate(req.params.id,{username, name, email, address, description, fee})
   .then( user => {
     res.redirect('/profile');
   });
 })
 
-
-//confirmar servicio desde cleaner
+// confirmar servicio desde cleaner
 profile.get('/confirm/:id', (req, res, next) =>{
   let confirmId = req.params.id;
 

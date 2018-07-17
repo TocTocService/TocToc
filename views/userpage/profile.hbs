@@ -9,6 +9,11 @@
     El precio por hora es: <b>{{ user.fee }}€</b>
   </p>
 
+  <h2>Tu rating es</h2>
+  <div>
+    <p>{{totalRate}}</p>
+  </div>
+
   <h4>Servicios por confirmar</h4>
 {{#each services}}
       <li>
@@ -40,9 +45,9 @@
           <li> <b>Para</b>: {{ user.username }} </li>
           <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
         </ul>
-        {{#if pastDate}}
+        {{!-- {{#if pastDate}} --}}
         <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
-        {{/if}}
+        {{!-- {{/if}} --}}
       </li>
   {{/each}}
 {{/if}}

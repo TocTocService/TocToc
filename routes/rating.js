@@ -1,6 +1,7 @@
 const express = require("express");
 const rating = express.Router();
 const Rating = require("../models/Rating");
+const User = require("../models/User");
 
 rating.use((req, res, next) => {
   if(req.user){
@@ -11,25 +12,30 @@ rating.use((req, res, next) => {
 })
 
 rating.get('/rates/:id', (req, res) => {
-  User.findById(req.params.id).then(rate => {
-    res.render('rates',{rate});
+  User.findById(req.params.id).then(cleaner => {
+    res.render('rates',{cleaner});
   });     
 });
 
 rating.post('/rates/:id', (req, res) => {
   const {speed, satisfaction, recommendation} = req.body;
-  console.log(speed)
-  console.log(recommendation)
+  const cleaner = req.params.id;
+  const user = req.user._id;
+
   Rating.create({
-    speed: {type: Number, enum: [1, 2, 3, 4, 5]},
-    satisfaction: {type: Number, enum: [1, 2, 3, 4, 5]},
-    recommendation: {type: String, enum: ["Yes", "No"]}
+    cleaner,
+    user,
+    speed,
+    satisfaction,
+    recommendation
+  })
+  .then(() => {
+    res.redirect('/profile');
+  })
+  .catch((err) =>{
+    console.log(err);
   })
 
-  Rating.findByIdAndUpdate(req.params.id,{speed, satisfaction, recommendation})
-  .then( rate => {
-    res.redirect('/profile');
-  });
 });
 
 module.exports = rating;
