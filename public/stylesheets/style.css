@@ -7,7 +7,7 @@ body {
 a {
   color: #00B7FF; }
 
-/* Stars */
+/* Stars Rating */
 .rating {
   --star-size: 3;
   /* use CSS variables to calculate dependent dimensions later */
