@@ -13,9 +13,9 @@
           <li> <b>Para</b>: {{ user.username }} </li>
           <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
         </ul>
-        {{!-- {{if pastDate}} --}}
-        <li><a href="/rates">Valora al TOC'leaner</a></li>
-        {{!-- {{/if}} --}}
+        {{#if pastDate}}
+        <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
+        {{/if}}
       </li>
   {{/each}}
 {{/if}}

@@ -7,7 +7,7 @@ const ratingSchema = new Schema(
     cleaner: {type: Schema.Types.ObjectId, ref: 'User'},
     speed: {type: Number, enum: [1, 2, 3, 4, 5]},
     satisfaction: {type: Number, enum: [1, 2, 3, 4, 5]},
-    recommendation: {type: String, enum: ["Yes", "No"]},
+    recommendation: {type: String, enum: ["Yes", "No"]}
   });
 
 const Rating = mongoose.model("Rating", ratingSchema);
