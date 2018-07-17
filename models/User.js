@@ -7,7 +7,6 @@ const userSchema = new Schema(
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     address: {type: String},
-    hours: { type: String, enum: ["Morning", "Afternoon", "Always"]},
     isToc: {type: Boolean, default: false},
     availability: {type: Boolean, default: true},
     fee: { type: Number, default: null }

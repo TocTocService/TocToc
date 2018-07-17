@@ -90,6 +90,9 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
 
+const profile = require('./routes/profile');
+app.use('/', profile);
+
 const rating = require('./routes/rating');
 app.use('/', rating);
 
