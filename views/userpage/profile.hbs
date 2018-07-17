@@ -20,14 +20,12 @@
         <h4> {{ serviceDate }} </h4>
 
         <ul>
-          <li> <b>Para</b>: {{ user.username }} </li>
-          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+          <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
         </ul>
-        {{!-- {{if PickDate.confirm}}
-        <li><a href="/user/{{this._id}}">Ver ficha</a></li>
-        {{else}} --}}
-        <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
-        {{!-- {{/if}} --}}
+
+        {{#ifEquals this.confirm "Pendiente"}}
+        <li><a href="/confirm/{{cleaner._id}}">Confirma servicio</a></li>
+        {{/ifEquals}}
       </li>
   {{/each}}
   
@@ -42,8 +40,11 @@
         <h4> {{ serviceDate }} </h4>
 
         <ul>
-          <li> <b>Para</b>: {{ user.username }} </li>
-          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+          <li> <b>Para</b>: {{ user.name }} </li>
+          <li> <b>TOC'leaner</b>: {{ cleaner.name }} </li>
+          <li> <b>Estado</b>: {{ confirm }} </li>
+           <a href="/delete/{{_id}}">Cancelar servicio</a>
+          
         </ul>
         {{!-- {{#if pastDate}} --}}
         <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>

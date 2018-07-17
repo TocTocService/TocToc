@@ -1,0 +1,21 @@
+
+{{#if user.isToc}}
+  <p>Usuario: {{ ficha.username }} </p>
+  <p>Nombre: {{ ficha.name }} </p>
+  <p>Dirección: {{ficha.address}}</p>
+  {{!-- <p>Tarifa: {{user.fee}}€</p> --}}
+  <p>Descripción: {{ficha.description}}</p>
+
+{{else}}
+  <p>Usuario: {{ ficha.username }} </p>
+  <p>Nombre: {{ ficha.name }} </p>
+  <p>Tarifa: {{ficha.fee}}€</p>
+  <p>Descripción: {{ficha.description}}</p>
+  {{!-- <p>Valoración: {{ficha.description}}</p> --}}
+</ul>
+{{/if}}
+
+
+<a href="/profile">
+  Vuelve a tu perfil
+</a>

@@ -25,6 +25,8 @@ cleanPickRoutes.get("/cleaners", (req, res, next) => {
 });
 
 cleanPickRoutes.post("/cleaners", (req, res, next) => {
+
+  
   const serviceInfo = {
     serviceDate: req.body.serviceDate,
     cleaner: req.body.cleanerId,
@@ -58,6 +60,10 @@ cleanPickRoutes.get("/scheduleService/:id", (req, res, next) => {
     });
   });
 });
+
+cleanPickRoutes.get('/delete/:id',(req,res) => {
+  PickDate.findByIdAndRemove(req.params.id, () => res.redirect('/profile'));
+})
 
 
 module.exports = cleanPickRoutes;

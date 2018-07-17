@@ -28,7 +28,7 @@ authRoutes.get("/signup", (req, res, next) => {
 
 
 authRoutes.post("/signup", (req, res, next) => {
-  const {username, password, email} = req.body;
+  const {username, name, password, email} = req.body;
   const isToc = Boolean(req.body.isToc);
 
   if (username === "" || password === "" || email === "") {
@@ -47,6 +47,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
     const newUser = new User({
       username,
+      name,
       password: hashPass,
       email,
       isToc,
@@ -56,7 +57,7 @@ authRoutes.post("/signup", (req, res, next) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
-        res.redirect("/");
+        res.redirect("/login");
       }
     });
   });

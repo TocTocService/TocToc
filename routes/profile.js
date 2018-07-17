@@ -57,12 +57,25 @@ profile.post('/edit/:id', (req, res) => {
 profile.get('/confirm/:id', (req, res, next) =>{
   let confirmId = req.params.id;
 
-  PickDate.findOneAndUpdate({_id: confirmId}, {confirm:true}, {new:true}).then(user => {
+  PickDate.findOneAndUpdate({_id: confirmId}, {confirm: "Confirmado"}, {new:true}).then(user => {
     res.redirect("/profile");
   })
   .catch((err)=> {
     console.log(err);
   })
 });
+
+profile.get('/public/:id', (req, res, next) =>{
+  let id = req.params.id;
+
+ 
+  User.findById(id).then(ficha => {
+    res.render("userpage/public", {ficha});
+  })
+  .catch((err)=> {
+    console.log(err);
+  })
+});
+
 
 module.exports = profile;
