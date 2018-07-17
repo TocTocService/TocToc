@@ -24,4 +24,8 @@ profile.get('/profile', (req, res, next) => {
   .catch(err => console.log(err));
 });
 
+profile.get('/edit', (req, res) =>{
+  res.render('userpage/edit');
+});
+
 module.exports = profile;

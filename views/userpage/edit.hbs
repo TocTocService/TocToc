@@ -1,0 +1,33 @@
+<h2>Edita tu perfil</h2>
+
+<form action="/edit" method="POST" id="form-container">
+  <label for="username">Usuario</label>
+  <input id="username" type="text" name="username" placeholder="{{user.username}}">
+
+  <br><br>
+  <label for="email">Email</label>
+  <input id="email" type="email" name="email" placeholder="{{user.email}}">
+  <br><br>
+
+  <label for="password">Contraseña</label>
+  <input id="password" type="password" name="password" placeholder="{{user.password}}">
+  <br><br>
+  
+  <label for="address">Dirección</label>
+  <input id="address" type="text" name="address" placeholder="C/Casalimpia, 6">
+  <br><br>
+
+  <div class="form-group">
+    <label for="photo">Upload your avatar</label>
+    <input type="file" name="photo">    
+  </div>
+
+  {{#if message }}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+
+  <br><br>
+
+  <button>Actualiza tus datos</button>
+
+</form>

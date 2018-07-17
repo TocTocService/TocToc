@@ -23,17 +23,15 @@ rating.get('/rates', (req, res, next) => {
     .find(query)
     .populate('user', 'name')
     .populate('cleaner', 'name')
-    //.sort('pickupDate')
-    .exec((err, pickupDocs) => {
-      if (err) {
-        next(err);
-        return;
-      }
-
+    .then(pickupDocs => {
+      console.log(pickupDocs)
       res.render('rates' , {
         pickups: pickupDocs
       });
-  });
+    })
+    .catch( err => next(err))
+    
+      
 
 });
 

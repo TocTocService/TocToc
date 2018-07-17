@@ -95,9 +95,11 @@ app.use('/', profile);
 
 const rating = require('./routes/rating');
 app.use('/', rating);
-
-      
+    
 const cleanPickRouter = require('./routes/cleanPick');
 app.use('/', cleanPickRouter);
+
+const profile = require('./routes/profile');
+app.use('/', profile);
 
 module.exports = app;
