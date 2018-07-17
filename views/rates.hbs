@@ -1,6 +1,6 @@
 <form id="rating" method="post" action="/rates">
   <fieldset class="rating">
-    <legend>Rapidez:</legend>
+    <legend>Rapidez</legend>
     <input name="rating" type="radio" id="speed1" value="5" on="change:rating.submit" />
     <label for="rating" title="1 stars">☆</label>
 
@@ -17,7 +17,7 @@
     <label for="rating" title="5 stars">☆</label>
   </fieldset>
   <fieldset class="rating">
-    <legend>Satisfacción:</legend>
+    <legend>Satisfacción</legend>
     <input name="rating1" type="radio" id="sat1" value="5" on="change:rating.submit"/>
     <label for="rating1" title="1 stars">☆</label>
 
@@ -33,13 +33,13 @@
     <input name="rating1" type="radio" id="sat5" value="1" on="change:rating.submit"/>
     <label for="rating1" title="5 stars">☆</label>
   </fieldset>
-  {{#unless user.isToc}}
-  <label for="recommend">Recomendarías a {{this.user.name}}</label>
+  {{!-- {{#unless user.isToc}} --}}
+  <label for="recommend">Recomendarías a {{user.username}}</label>
   <div>
     <input type="radio" name="recommend" value="yes" checked="checked"> YES<br>
     <input type="radio" name="recommend" value="no"> NO<br>
   </div>
-  {{/unless}}
+  {{!-- {{/unless}} --}}
   <button>Enviar</button>
   
 </form>
