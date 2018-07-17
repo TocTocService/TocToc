@@ -5,7 +5,7 @@ const pickDateSchema = new Schema({
   serviceDate: Date,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   cleaner: { type: Schema.Types.ObjectId, ref: 'User' },
-  confirm: {type: String, enum: ["Confirmado", "Pendiente"], default: "Pendiente"}
+  confirm: {type: String, enum: ["Confirmado", "Pendiente", "Rechazado"], default: "Pendiente"}
 },
 {
   timestamps: {

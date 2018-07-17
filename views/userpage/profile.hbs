@@ -21,11 +21,13 @@
 
         <ul>
           <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
+             <li> <b>Estado</b>: {{ confirm }} </li>
         </ul>
 
-        {{#ifEquals this.confirm "Pendiente"}}
-        <li><a href="/confirm/{{cleaner._id}}">Confirma servicio</a></li>
-        {{/ifEquals}}
+        {{!-- {{#ifEquals this.confirm "Pendiente"}} --}}
+        <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
+        <li><a href="/reject/{{this._id}}">Rechaza servicio</a></li>
+        {{!-- {{/ifEquals}} --}}
       </li>
   {{/each}}
   
@@ -41,7 +43,7 @@
 
         <ul>
           <li> <b>Para</b>: {{ user.name }} </li>
-          <li> <b>TOC'leaner</b>: {{ cleaner.name }} </li>
+          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
           <li> <b>Estado</b>: {{ confirm }} </li>
            <a href="/delete/{{_id}}">Cancelar servicio</a>
           
