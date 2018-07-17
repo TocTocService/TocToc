@@ -61,5 +61,9 @@ cleanPickRoutes.get("/scheduleService/:id", (req, res, next) => {
   });
 });
 
+cleanPickRoutes.get('/delete/:id',(req,res) => {
+  PickDate.findByIdAndRemove(req.params.id, () => res.redirect('/profile'));
+})
+
 
 module.exports = cleanPickRoutes;
