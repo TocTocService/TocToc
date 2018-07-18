@@ -13,10 +13,9 @@ const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash      = require("connect-flash");
     
-
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/toctoc', {useMongoClient: true})
+  .connect(process.env.DBURL, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
