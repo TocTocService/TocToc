@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
-const dbName = process.env.DBURL
+const dbName = process.env.DBURL2
 mongoose.connect(dbName,{useMongoClient:true});
 
 const salt = bcrypt.genSaltSync(10);
