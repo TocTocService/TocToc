@@ -98,7 +98,7 @@ profile.get('/public/:id', (req, res, next) =>{
   .find(query)
   .then( data => {
     data.forEach((e) => {
-      totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
+      totalRate += Math.floor((e.speed + e.satisfaction) / (data.length * 2));
       return totalRate;
     })
   })
