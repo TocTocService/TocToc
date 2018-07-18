@@ -20,7 +20,6 @@ authRoutes.post("/login", passport.authenticate("local", {
 }));
 
 
-
 //signup
 authRoutes.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -31,12 +30,14 @@ authRoutes.post("/signup", (req, res, next) => {
   const {username, name, password, email} = req.body;
   const isToc = Boolean(req.body.isToc);
 
+
   if (username === "" || password === "" || email === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
+    if(err)console.log(err);
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;

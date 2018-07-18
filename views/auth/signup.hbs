@@ -1,14 +1,14 @@
 <!-- views/auth/signup.hbs -->
 <h2>Crear cuenta</h2>
 
-<form action="/signup" method="POST" id="form-container" enctype="multipart/form-data">
+<form action="/signup" method="POST" id="form-container">
   <label for="username">Usuario</label>
   <input id="username" type="text" name="username" placeholder="Usuario">
 
   <br><br>
 
-  <label for="username">Nombre</label>
-  <input id="username" type="text" name="name" placeholder="Nombre">
+  <label for="name">Nombre</label>
+  <input id="name" type="text" name="name" placeholder="Nombre">
 
   <br><br>
 
@@ -18,9 +18,6 @@
 
   <label for="password">Contraseña</label>
   <input id="password" type="password" name="password" placeholder="Contraseña">
-  <br><br>
-  <label for="photo">Foto</label>
-  <input type="file" name="photo">
 
 <br><br>
   <label><input type="checkbox" name="isToc" value="value"> Eres un TOC'leaner?</label>
