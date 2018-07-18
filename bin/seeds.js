@@ -13,6 +13,7 @@ const hashPass = bcrypt.hashSync('1234', salt);
 const users = [
   {
     username: "annahogberg",
+    name: "Anna",
     password: hashPass,
     email: "a@gmail.com",
     address: "Buganvilla 6",
@@ -21,6 +22,7 @@ const users = [
   },
   {
     username: "juan",
+    name: "Juan",
     password: hashPass,
     email: "j@gmail.com",
     isToc: false,
@@ -28,6 +30,7 @@ const users = [
   },
   {
     username: "paulagarcia",
+    name: "Paula",
     password: hashPass,
     email: "p@gmail.com",
     address: "Chopera 14",
@@ -37,6 +40,7 @@ const users = [
   },
   {
     username: "malmarc",
+    name: "Marc",
     password: hashPass,
     email: "mm@gmail.com",
     isToc: true,
