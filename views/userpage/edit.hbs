@@ -14,7 +14,7 @@
   <br><br>
 
   <label for="description">Descripción</label>
-  <textarea id="description" type="text" name="description" value="{{user.description}}" placeholder="Escribe algo sobre tí :-)"></textarea>
+  <textarea id="description" type="text" name="description" value="{{user.description}}"></textarea>
   <br><br>
   
   {{#if user.isToc}}
@@ -23,7 +23,7 @@
     <br><br>
   {{else}}
   <label for="address">Dirección</label>
-  <input id="address" type="text" name="address" placeholder="C/CasaLimpia 6" value="">
+  <input id="address" type="text" name="address" value="{{user.address}}">
   <br><br>
   {{/if}}
 
