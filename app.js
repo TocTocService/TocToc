@@ -72,13 +72,13 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
 
-hbs.registerHelper('ifEquals', (value1, value2, options) => {
+hbs.registerHelper('ifEquals', (value1, value2, scope, options) => {
   if (arguments.length < 2)
       throw new Error("Handlebars Helper ifEquals needs 1 parameter");
   if ( value1 !== value2 ) {
-      return options.inverse(this);
+      return options.inverse(scope);
   } else {
-      return options.fn(this);
+      return options.fn(scope);
   }
 
 });

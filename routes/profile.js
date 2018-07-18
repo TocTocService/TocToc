@@ -15,10 +15,12 @@ profile.get("/profile", (req, res, next) => {
   }
 
   let totalRate = 0;
+  let hasVoted = false;
 
   Rating
   .find(query)
   .then( data => {
+    hasVoted = true;
     data.forEach((e) => {
       totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
       return totalRate;
@@ -30,7 +32,9 @@ profile.get("/profile", (req, res, next) => {
   .populate('user')
   .populate('cleaner')
   .sort('serviceDate')
-  .then(services => res.render('userpage/profile', {services, totalRate}))
+  .then(services => {
+    res.render('userpage/profile', {services, totalRate, hasVoted})
+  })
   .catch(err => console.log(err));
 });
 
@@ -94,7 +98,8 @@ profile.get('/public/:id', (req, res, next) =>{
     })
   })
 
-  User.findById(id).then(ficha => {
+  User.findById(id)
+  .then(ficha => {
     res.render("userpage/public", {ficha, totalRate});
   })
   .catch((err)=> {
@@ -119,16 +124,5 @@ profile.get("/reject/:id", (req, res, next) => {
     });
 });
 
-profile.get("/public/:id", (req, res, next) => {
-  let id = req.params.id;
-
-  User.findById(id)
-    .then(ficha => {
-      res.render("userpage/public", { ficha });
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
 
 module.exports = profile;
