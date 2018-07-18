@@ -17,23 +17,21 @@
 
 <h4>Servicios por confirmar</h4>
 {{#each services}}
-<li>
-  <h4> {{ serviceDate }} </h4>
+      <li>
+        <h4> {{ serviceDate }} </h4>
 
-  <ul>
-    <li>
-      <b>Para</b>: {{ user.username }} ||
-      <a href="/public/{{user._id}}">Ver ficha</a>
-    </li>
-  </ul>
+        <ul>
+          <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
+             <li> <b>Estado</b>: {{ confirm }} </li>
+        </ul>
 
-  {{#ifEquals this.confirm "Pendiente"}}
-  <li>
-    <a href="/confirm/{{cleaner._id}}">Confirma servicio</a>
-  </li>
-  {{/ifEquals}}
-</li>
-{{/each}} 
+        {{!-- {{#ifEquals this.confirm "Pendiente"}} --}}
+        <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
+        <li><a href="/reject/{{this._id}}">Rechaza servicio</a></li>
+        {{!-- {{/ifEquals}} --}}
+      </li>
+  {{/each}}
+  
 {{else}}
 <h4>Servicios pendientes:</h4>
 
@@ -46,22 +44,21 @@
 
     <ul>
       <li>
-        <b>Para</b>: {{ user.name }} </li>
-      <li>
-        <b>TOC'leaner</b>: {{ cleaner.name }} </li>
-      <li>
-        <b>Estado</b>: {{ confirm }} </li>
-      <a href="/delete/{{_id}}">Cancelar servicio</a>
+        <h4> {{ serviceDate }} </h4>
 
-    </ul>
-    {{!-- {{#if pastDate}} --}}
-    <li>
-      <a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a>
-    </li>
-    {{!-- {{/if}} --}}
-  </li>
-  {{/each}} 
-  {{/if}}
+        <ul>
+          <li> <b>Para</b>: {{ user.name }} </li>
+          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
+          <li> <b>Estado</b>: {{ confirm }} </li>
+           <a href="/delete/{{_id}}">Cancelar servicio</a>
+          
+        </ul>
+        {{!-- {{#if pastDate}} --}}
+        <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
+        {{!-- {{/if}} --}}
+      </li>
+  {{/each}}
+{{/if}}
 </ul>
 {{/if}}
 <a href='/edit/{{user.id}}'>Edita tu perfil</a>

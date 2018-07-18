@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
-//const dbName = process.env.DBURL
-mongoose.connect('mongodb://localhost/toctoc',{useMongoClient:true});
+const dbName = process.env.DBURL
+mongoose.connect(dbName,{useMongoClient:true});
 
 const salt = bcrypt.genSaltSync(10);
 const hashPass = bcrypt.hashSync('1234', salt);

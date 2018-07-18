@@ -1,14 +1,13 @@
 const express = require("express");
 const profile = express.Router();
 const PickDate = require("../models/PickDate");
-const User = require('../models/User');
-const Rating = require('../models/Rating');
-
+const User = require("../models/User");
+const Rating = require("../models/Rating");
 
 // Poner servicios en perfil/historial
-profile.get('/profile', (req, res, next) => {
+profile.get("/profile", (req, res, next) => {
   let query;
-  
+
   if (req.user.isToc) {
     query = { cleaner: req.user._id };
   } else {
@@ -36,31 +35,42 @@ profile.get('/profile', (req, res, next) => {
 });
 
 // Editar datos profile
-profile.get('/edit/:id', (req, res) =>{
+profile.get("/edit/:id", (req, res) => {
   User.findById(req.params.id).then(user => {
-    res.render('userpage/edit',{user});
+    res.render("userpage/edit", { user });
   });
 });
 
-profile.post('/edit/:id', (req, res) => {
+profile.post("/edit/:id", (req, res) => {
   const fee = req.body.fee ? req.body.fee : 0;
-  const {username, name, email, address, description} = req.body;
-  User.findByIdAndUpdate(req.params.id,{username, name, email, address, description, fee})
-  .then( user => {
-    res.redirect('/profile');
+  const { username, name, email, address, description } = req.body;
+  User.findByIdAndUpdate(req.params.id, {
+    username,
+    name,
+    email,
+    address,
+    description,
+    fee
+  }).then(user => {
+    res.redirect("/profile");
   });
-})
+});
 
 // confirmar servicio desde cleaner
-profile.get('/confirm/:id', (req, res, next) =>{
+profile.get("/confirm/:id", (req, res, next) => {
   let confirmId = req.params.id;
 
-  PickDate.findOneAndUpdate({_id: confirmId}, {confirm: "Confirmado"}, {new:true}).then(user => {
-    res.redirect("/profile");
-  })
-  .catch((err)=> {
-    console.log(err);
-  })
+  PickDate.findOneAndUpdate(
+    { _id: confirmId },
+    { confirm: "Confirmado" },
+    { new: true }
+  )
+    .then(user => {
+      res.redirect("/profile");
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 profile.get('/public/:id', (req, res, next) =>{
@@ -83,7 +93,7 @@ profile.get('/public/:id', (req, res, next) =>{
       return totalRate;
     })
   })
- 
+
   User.findById(id).then(ficha => {
     res.render("userpage/public", {ficha, totalRate});
   })
@@ -92,5 +102,33 @@ profile.get('/public/:id', (req, res, next) =>{
   })
 });
 
+// confirmar servicio desde cleaner
+profile.get("/reject/:id", (req, res, next) => {
+  let confirmId = req.params.id;
+
+  PickDate.findOneAndUpdate(
+    { _id: confirmId },
+    { confirm: "Rechazado" },
+    { new: true }
+  )
+    .then(user => {
+      res.redirect("/profile");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+profile.get("/public/:id", (req, res, next) => {
+  let id = req.params.id;
+
+  User.findById(id)
+    .then(ficha => {
+      res.render("userpage/public", { ficha });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
 module.exports = profile;
