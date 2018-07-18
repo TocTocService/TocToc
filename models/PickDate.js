@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const pickDateSchema = new Schema({
   serviceDate: Date,
+  serviceTime: Number,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   cleaner: { type: Schema.Types.ObjectId, ref: 'User' },
   confirm: {type: String, enum: ["Confirmado", "Pendiente", "Rechazado"], default: "Pendiente"}

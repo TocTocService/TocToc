@@ -29,12 +29,13 @@ cleanPickRoutes.post("/cleaners", (req, res, next) => {
   
   const serviceInfo = {
     serviceDate: req.body.serviceDate,
+    servicetime: req.body.serviceTime,
     cleaner: req.body.cleanerId,
     user: req.user._id
   };
 
   const theService = new PickDate(serviceInfo);
-  // console.log(theService)
+  console.log(theService)
 
   theService.save(err => {
     if (err) {

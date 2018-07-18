@@ -6,6 +6,19 @@
   <p>Tarifa: {{ficha.fee}}€</p>
   <p>Descripción: {{ficha.description}}</p>
   <p>Valoración media: {{totalRate}}</p>
+{{ficha}}
+
+        <form action="/cleaners" method="post">
+  <div>
+    <label for="service-date-input">
+      Fecha del servicio:
+    </label>
+    <input type="date" name="serviceDate" id="service-date-input">
+  </div>
+  <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
+
+  <button>Contrata</button>
+  </form>
 
   {{else}}
   <p>Usuario: {{ ficha.username }} </p>
