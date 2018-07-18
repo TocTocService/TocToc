@@ -4,7 +4,7 @@ const PickDate = require("../models/PickDate");
 const User = require("../models/User");
 const moment = require("moment");
 moment().format();
-moment.lang("es");
+moment.locale("es");
 
 cleanPickRoutes.use((req, res, next) => {
   if (req.user) {

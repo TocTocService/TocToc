@@ -1,10 +1,6 @@
 <h1>{{title}}</h1>
 <p>Hola {{user.username}}</p>
 
-<div class="avatar">
-  <img src="{{user.avatarPath}}" alt="Avatar">
-</div>
-
 
 {{#if user.isToc}}
 <h3> INFO sobre tu servicio </h3>
@@ -45,29 +41,29 @@
 
   {{#if services}} 
   {{#each services}}
-  <li>
-    <h4> {{ this.serviceDate }} </h4>
+  
+
 {{!-- 
     <ul>
       <li>
         <h4> {{ serviceDate }} </h4> --}}
 
-        <ul>
-          <li> <b>Para</b>: {{ this.user.name }} </li>
-          <li> <b>TOC'leaner</b>: {{ this.cleaner.username }} </li>
-          <li> <b>Hora</b>: {{ serviceTime }} </li>
-          <li> <b>Estado</b>: {{ this.confirm }} </li>
-           <a href="/delete/{{this._id}}">Cancelar servicio</a>
-          </ul>
+        
+           <p><b>TOC'leaner</b>: {{ this.cleaner.name }} </p>
+         <p> <b>Día</b>: {{ this.serviceDate }} </p>
+          <p><b>Hora</b>: {{ serviceTime }} </p>
+          <p><b>Estado</b>: {{ this.confirm }} </p>
+           <p><a href="/delete/{{this._id}}">Cancelar servicio</a>
+          
         {{!-- 
         {{#ifEquals this.confirm "Pendiente" this}} --}}
         {{#unless hasVoted}}
-        <li><a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a></li>
+        <p><a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a></p>
         {{/unless}}
         {{!-- {{/if}} --}}
 
      
-      </li>
+      
   {{/each}}
 {{/if}}
 </ul>
