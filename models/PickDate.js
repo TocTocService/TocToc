@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const pickDateSchema = new Schema({
-  serviceDate: Date,
+  serviceDate: String,
+  serviceTime: String,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   cleaner: { type: Schema.Types.ObjectId, ref: 'User' },
   confirm: {type: String, enum: ["Confirmado", "Pendiente", "Rechazado"], default: "Pendiente"}

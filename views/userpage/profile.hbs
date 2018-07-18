@@ -26,7 +26,9 @@
 
         <ul>
           <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
+          <li> <b>Hora</b>: {{ serviceTime }} </li>
              <li> <b>Estado</b>: {{ confirm }} </li>
+             
         </ul>
 
         {{#ifEquals this.confirm "Pendiente" this}}
@@ -53,6 +55,7 @@
         <ul>
           <li> <b>Para</b>: {{ this.user.name }} </li>
           <li> <b>TOC'leaner</b>: {{ this.cleaner.username }} </li>
+          <li> <b>Hora</b>: {{ serviceTime }} </li>
           <li> <b>Estado</b>: {{ this.confirm }} </li>
            <a href="/delete/{{this._id}}">Cancelar servicio</a>
           </ul>

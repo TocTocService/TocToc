@@ -10,6 +10,23 @@
   <p>Descripción: {{ficha.description}}</p>
   <p>Valoración media: {{totalRate}}</p>
 
+        <form action="/cleaners" method="post">
+  <div>
+    <label for="service-date-input">
+      Fecha del servicio:
+    </label>
+    <input type="date" name="serviceDate" id="service-date-input">
+  </div>
+  <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
+
+  <button>Contrata</button>
+  </form>
+
+  <a href="/cleaners">
+  Buscar otro TOC'leaner
+</a>
+        
+
   {{else}}
   <p>Usuario: {{ ficha.username }} </p>
   <p>Nombre: {{ ficha.name }} </p>
@@ -22,9 +39,11 @@
   <div id="map" class="map_canvas" style="height:500px"></div>
   <input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
 </ul>
-{{/if}}
 
 
 <a href="/profile">
-  Vuelve a tu perfil
+  Vuelve para confirmar
 </a>
+        
+{{/if}}
+
