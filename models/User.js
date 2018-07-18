@@ -11,7 +11,9 @@ const userSchema = new Schema(
     isToc: {type: Boolean, default: false},
     availability: {type: Boolean, default: true},
     fee: { type: Number, default: null },
-    description: {type: String}
+    description: {type: String},
+    avatarName: String,
+    avatarPath: String,
   });
 
 const User = mongoose.model("User", userSchema);

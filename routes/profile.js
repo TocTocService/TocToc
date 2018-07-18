@@ -3,6 +3,7 @@ const profile = express.Router();
 const PickDate = require("../models/PickDate");
 const User = require("../models/User");
 const Rating = require("../models/Rating");
+const uploadCloud = require("../config/cloudinary.js");
 
 // Poner servicios en perfil/historial
 profile.get("/profile", (req, res, next) => {
@@ -22,7 +23,7 @@ profile.get("/profile", (req, res, next) => {
   .then( data => {
     hasVoted = true;
     data.forEach((e) => {
-      totalRate += ((e.speed + e.satisfaction) / (data.length * 2));
+      totalRate += Math.floor((e.speed + e.satisfaction) / (data.length * 2));
       return totalRate;
     })
   })
@@ -45,15 +46,19 @@ profile.get("/edit/:id", (req, res) => {
   });
 });
 
-profile.post("/edit/:id", (req, res) => {
+profile.post("/edit/:id", uploadCloud.single('photo'), (req, res) => {
   const fee = req.body.fee ? req.body.fee : 0;
-  const { username, name, email, address, description } = req.body;
+  const avatarPath = req.file.url;
+  const avatarName = req.file.photo;
+  const { username, name, email, address, description} = req.body;
   User.findByIdAndUpdate(req.params.id, {
     username,
     name,
     email,
     address,
     description,
+    avatarName,
+    avatarPath,
     fee
   }).then(user => {
     res.redirect("/profile");

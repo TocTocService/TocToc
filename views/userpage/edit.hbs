@@ -1,6 +1,6 @@
 <h2>Edita tu perfil</h2>
 
-<form action="/edit/{{user.id}}" method="POST" id="form-container">
+<form action="/edit/{{user.id}}" method="POST" id="form-container" enctype="multipart/form-data">
   <label for="username">Usuario</label>
   <input id="username" type="text" name="username" value="{{user.username}}">
   <br><br>
@@ -14,7 +14,7 @@
   <br><br>
 
   <label for="description">Descripción</label>
-  <textarea id="description" type="text" name="description" value="{{user.description}}"></textarea>
+  <textarea id="description" type="text" name="description">{{user.description}}</textarea>
   <br><br>
   
   {{#if user.isToc}}
@@ -31,6 +31,7 @@
     <label for="photo">Sube una foto de perfil ;-)</label>
     <input type="file" name="photo">    
   </div>
+
 
   {{#if message }}
     <div class="error-message">{{ message }}</div>
