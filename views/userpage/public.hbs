@@ -1,4 +1,5 @@
 
+
 {{#if ficha.isToc}}
   <p>Usuario: {{ ficha.username }} </p>
   <p>Nombre: {{ ficha.name }} </p>
@@ -10,7 +11,14 @@
   <p>Usuario: {{ ficha.username }} </p>
   <p>Nombre: {{ ficha.name }} </p>
   <p>Descripción: {{ficha.description}}</p>
+  
+  {{!-- {{#ifEquals this.confirm "Confirmado" this}} --}}
   <p>Dirección: {{ficha.address}}</p>
+  {{!-- {{/ifEquals}} --}}
+  
+  <div id="map" class="map_canvas" style="height:500px"></div>
+  <input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
+</ul>
 {{/if}}
 
 

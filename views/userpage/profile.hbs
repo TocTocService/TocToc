@@ -25,10 +25,10 @@
              <li> <b>Estado</b>: {{ confirm }} </li>
         </ul>
 
-        {{!-- {{#ifEquals this.confirm "Pendiente"}} --}}
+        {{#ifEquals this.confirm "Pendiente" this}}
         <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
         <li><a href="/reject/{{this._id}}">Rechaza servicio</a></li>
-        {{!-- {{/ifEquals}} --}}
+        {{/ifEquals}}
       </li>
   {{/each}}
   
@@ -40,22 +40,26 @@
   {{#if services}} 
   {{#each services}}
   <li>
-    <h4> {{ serviceDate }} </h4>
-
+    <h4> {{ this.serviceDate }} </h4>
+{{!-- 
     <ul>
       <li>
-        <h4> {{ serviceDate }} </h4>
+        <h4> {{ serviceDate }} </h4> --}}
 
         <ul>
-          <li> <b>Para</b>: {{ user.name }} </li>
-          <li> <b>TOC'leaner</b>: {{ cleaner.username }} </li>
-          <li> <b>Estado</b>: {{ confirm }} </li>
-           <a href="/delete/{{_id}}">Cancelar servicio</a>
-          
-        </ul>
-        {{!-- {{#if pastDate}} --}}
-        <li><a href="/rates/{{cleaner.id}}">Valora a tu TOC'leaner</a></li>
+          <li> <b>Para</b>: {{ this.user.name }} </li>
+          <li> <b>TOC'leaner</b>: {{ this.cleaner.username }} </li>
+          <li> <b>Estado</b>: {{ this.confirm }} </li>
+           <a href="/delete/{{this._id}}">Cancelar servicio</a>
+          </ul>
+        {{!-- 
+        {{#ifEquals this.confirm "Pendiente" this}} --}}
+        {{#unless hasVoted}}
+        <li><a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a></li>
+        {{/unless}}
         {{!-- {{/if}} --}}
+
+     
       </li>
   {{/each}}
 {{/if}}
