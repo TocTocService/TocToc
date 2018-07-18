@@ -3,6 +3,9 @@ const profile = express.Router();
 const PickDate = require("../models/PickDate");
 const User = require("../models/User");
 const Rating = require("../models/Rating");
+const moment = require("moment");
+moment().format();
+moment.locale("es")
 
 
 // Poner servicios en perfil/historial

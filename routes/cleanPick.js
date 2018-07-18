@@ -2,6 +2,10 @@ const express = require("express");
 const cleanPickRoutes = express.Router();
 const PickDate = require("../models/PickDate");
 const User = require("../models/User");
+const moment = require("moment");
+moment().format();
+moment.lang("es")
+
 
 cleanPickRoutes.use((req, res, next) => {
   if (req.user) {
@@ -12,6 +16,8 @@ cleanPickRoutes.use((req, res, next) => {
 });
 
 cleanPickRoutes.get("/cleaners", (req, res, next) => {
+
+
   User.find({ isToc: true }, (err, cleanerList) => {
     if (err) {
       next(err);
@@ -24,12 +30,29 @@ cleanPickRoutes.get("/cleaners", (req, res, next) => {
   });
 });
 
+
 cleanPickRoutes.post("/cleaners", (req, res, next) => {
 
+  const now = new Date();
+  const date = new Date(req.body.serviceDate);
+
+  if (now > date || date.getFullYear() >= 2019){
+    User.find({ isToc: true }, (err, cleanerList) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render("userpage/ListCleaners", { message: "No se puede contratar para esas fechas", 
+        cleaners: cleanerList
+      });
+    });
+    return;
+  }
+  
   
   const serviceInfo = {
-    serviceDate: req.body.serviceDate,
-    servicetime: req.body.serviceTime,
+    serviceDate: moment(req.body.serviceDate).format("dddd D MMMM YYYY"),
+    serviceTime: req.body.serviceTime,
     cleaner: req.body.cleanerId,
     user: req.user._id
   };
