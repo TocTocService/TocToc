@@ -1,49 +1,50 @@
-
 <div class="avatar">
   <img src="{{ficha.avatarPath}}" alt="Avatar">
 </div>
 
 {{#if ficha.isToc}}
-  <p>Usuario: {{ ficha.username }} </p>
-  <p>Nombre: {{ ficha.name }} </p>
-  <p>Tarifa: {{ficha.fee}}€</p>
-  <p>Descripción: {{ficha.description}}</p>
-  <p>Valoración media: {{totalRate}}</p>
-
-        <form action="/cleaners" method="post">
+<p>Usuario: {{ ficha.username }} </p>
+<p>Nombre: {{ ficha.name }} </p>
+<p>Tarifa: {{ficha.fee}}€</p>
+<p>Descripción: {{ficha.description}}</p>
+<p>Valoración media: {{totalRate}}</p>
+<p>{{message}}</p>
+<form action="/publicservicio" method="post">
   <div>
     <label for="service-date-input">
       Fecha del servicio:
     </label>
     <input type="date" name="serviceDate" id="service-date-input">
+    <input type="time" name="serviceTime" id="service-time-input">
+
   </div>
+
   <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
+  <input type="hidden" name="Url" value="fichapublic">
+  <input type="submit" value="Contrata">
+</form>
 
-  <button>Contrata</button>
-  </form>
-
-  <a href="/cleaners">
+<a href="/cleaners">
   Buscar otro TOC'leaner
 </a>
-        
 
-  {{else}}
-  <p>Usuario: {{ ficha.username }} </p>
-  <p>Nombre: {{ ficha.name }} </p>
-  <p>Descripción: {{ficha.description}}</p>
-  
-  {{!-- {{#ifEquals this.confirm "Confirmado" this}} --}}
-  <p>Dirección: {{ficha.address}}</p>
-  {{!-- {{/ifEquals}} --}}
-  
-  <div id="map" class="map_canvas" style="height:500px"></div>
-  <input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
-</ul>
+
+{{else}}
+<p>Usuario: {{ ficha.username }} </p>
+<p>Nombre: {{ ficha.name }} </p>
+<p>Descripción: {{ficha.description}}</p>
+
+{{!-- {{#ifEquals this.confirm "Confirmado" this}} --}}
+<p>Dirección: {{ficha.address}}</p>
+{{!-- {{/ifEquals}} --}}
+
+<div id="map" class="map_canvas" style="height:500px"></div>
+<input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
+
 
 
 <a href="/profile">
   Vuelve para confirmar
 </a>
-        
-{{/if}}
 
+{{/if}}

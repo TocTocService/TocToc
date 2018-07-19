@@ -49,22 +49,28 @@ profile.get("/edit/:id", (req, res) => {
 });
 
 profile.post("/edit/:id", uploadCloud.single('photo'), (req, res) => {
-  const fee = req.body.fee ? req.body.fee : 0;
-  const avatarPath = req.file.url;
-  const avatarName = req.file.photo;
-  const { username, name, email, address, description} = req.body;
-  User.findByIdAndUpdate(req.params.id, {
-    username,
-    name,
-    email,
-    address,
-    description,
-    avatarName,
-    avatarPath,
-    fee
-  }).then(user => {
-    res.redirect("/profile");
-  });
+  User.findById(req.params.id)
+  .then(user => {
+    const fee = req.body.fee ? req.body.fee : 0;
+    const avatarPath = req.file ? req.file.url : user.avatarPath;
+    const avatarName = req.file ? req.file.photo : user.avatarName;
+    const username = req.body.username != '' ? req.body.username : user.username;
+    const email = req.body.email != '' ? req.body.email : user.email;
+    const { name, address, description} = req.body ? req.body : user;
+    User.findByIdAndUpdate(req.params.id, {
+      username,
+      name,
+      email,
+      address,
+      description,
+      avatarName,
+      avatarPath,
+      fee
+    }).then(user => {
+      res.redirect("/profile");
+    });
+  })
+xº
 });
 
 // confirmar servicio desde cleaner
