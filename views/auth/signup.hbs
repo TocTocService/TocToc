@@ -1,36 +1,56 @@
-<h2>Crear cuenta</h2>
+<h2 class="form-h2">Crear cuenta</h2>
 
-<form action="/signup" method="POST" id="form-container">
-  <label for="username">Usuario</label>
-  <input id="username" type="text" name="username" placeholder="Usuario">
+<div class="container">
+  <form action="/signup" method="POST" id="form-container" class="signup">
 
-  <br><br>
 
-  <label for="name">Nombre</label>
-  <input id="name" type="text" name="name" placeholder="Nombre">
 
-  <br><br>
+    <div class="form-group">
+      <label for="username">Usuario</label>
+      <input id="username" type="text" class="form-control" name="username" placeholder="Usuario">
 
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Email">
-  <br><br>
+    </div>
+    <div class="form-group">
 
-  <label for="password">Contraseña</label>
-  <input id="password" type="password" name="password" placeholder="Contraseña">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" name="name" class="form-control" placeholder="Nombre">
 
-<br><br>
-  <label><input type="checkbox" name="isToc" value="value"> Eres un TOC'leaner?</label>
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+    </div>
+    <div class="form-group">
 
-  <br><br>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-group">
 
-  <button>Crea una cuenta</button>
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" name="password" class="form-control" placeholder="Contraseña" value="">
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" id="gridCheck" name="isToc" value="value">
+        <label class="form-check-label paragraph" for="gridCheck">
+          Eres un TOC'leaner?
+        </label>
+      </div>
 
-  <p class="account-message">
-    Ya tienes una cuenta?
-    <a href="/login">Login</a>
-  </p>
-</form>
+    </div>
+    <div class="form-group">
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
+
+    </div>
+    <div class="form-group">
+
+      <button type="submit" class="but form-control">Crea una cuenta</button>
+    </div>
+    <div class="form-group">
+      <p class="account-message smalltext">
+        Ya tienes una cuenta?
+        <a href="/login">Login</a>
+      </p>
+    </div>
+  </form>
+
+</div>

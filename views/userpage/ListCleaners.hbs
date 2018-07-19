@@ -1,14 +1,18 @@
-<h2>Encuentra tu TOC'leaner</h2>
+<h2 class="form-h2">Encuentra tu TOC'leaner</h2>
     {{message}}
 
-<ul>
-  {{#each cleaners}}
-    <li>
-      <h3> {{ this.username }} </h3>
-      <p> Precio: {{ this.fee }}€</p>
-
+<div class="pedirservices"> 
       <form action="/cleaners" method="post">
-  <div>
+  {{#each cleaners}}
+  <div class="card">
+    <div class="card-header">
+      <a href="/public/{{this._id}}"><h3 class="form-h2"> {{ this.username }} </h3></a>
+      </div>
+      <div class="card-body">
+      <p> Tarifa: {{ this.fee }}€/hora</p>
+      <p>Descripción: {{this.description}}</p>
+</div>
+  
     <label for="service-date-input">
       Fecha del servicio:
     </label>
@@ -16,17 +20,20 @@
     <input type="time" name="serviceTime" id="service-time-input">
   <input type="hidden" name="Url" value="fichalistado">
   
-  </div>
 
   <input type="hidden" name="cleanerId" value="{{ this._id }}">
-  <li><a href="/public/{{this._id}}">Ver ficha</a> </li>
+ 
 
   <button>Contrata</button>
-</form>
+</form> 
     </li>
   {{/each}}
-</ul>
+
+</div>
+</div>
 
 <a href="/profile">
   Vuelve a tu perfil
 </a>
+
+

@@ -136,6 +136,67 @@ nav{
   }
 }
 
+/*FORMULARIOS*/
+/*signup*/
+
+.form-h2{
+  text-align:center;
+  margin:40px 0 30px;
+}
+
+form{
+  background: $slblue;
+  max-width: 50%;
+  margin: 0 auto;
+  padding:20px;
+  border-radius: 10px;
+
+ 
+  .form-group{
+    max-width: 100%;
+  }
+  .form-check{
+    margin:30px 0 20px;
+  }
+  .paragraph{
+    margin-top:2px;
+  }
+  .smalltext{
+    font-size: 12px;
+  }
+  .but{
+    background: $brand;
+    color:white;
+  }
+}
+
+.pedirservices{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .card {
+    min-width: 500px;
+    margin-top: 30px;
+
+    .card-header{
+      background: $slblue;
+      a{
+        text-decoration: none;
+        color: inherit;
+      }
+      h5{
+        margin: 4px 0;
+      }
+      cursor: pointer;
+    }
+    .card-header:hover{
+      background: $brand;
+      color: #FFF;
+    }
+  }
+}
+
 
 /* Stars Rating */
   //legend{
