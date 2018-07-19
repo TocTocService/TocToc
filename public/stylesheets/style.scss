@@ -1,121 +1,125 @@
 body {
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #424242;
   margin: 0;
-  background: #FDFEFE;
+  background: #fdfefe;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
   text-decoration: none;
 }
 
-h1{
+h1 {
   font-weight: 700;
 }
 
-h3{
+h3 {
   font-weight: 800;
 }
 
 /* Blue Colors */
-$brand: #26C6DA;
-$lightblue: #B2EBF2;
-$slblue: #E0F7FA;
+$brand: #26c6da;
+$lightblue: #b2ebf2;
+$slblue: #e0f7fa;
 
 /* MENU */
-.navbar{
+.navbar {
   position: fixed;
   width: 100%;
 }
-nav{
+nav {
   background: $brand;
-  color: #FFF;
+  z-index: 5;
+  color: #fff;
 
-  .navbar-brand{ 
+  .navbar-brand {
     letter-spacing: 2px;
     font-size: 1.5em;
-    font-weight: 700
+    font-weight: 700;
   }
 
-  i.fa{font-size: 1.5em;}
+  i.fa {
+    font-size: 1.5em;
+  }
 
-   .nabvar-collapse{
+  .nabvar-collapse {
     justify-content: flex-end;
   }
 
-  .navbar-toggler-icon{
-    color: #FFF;
+  .navbar-toggler-icon {
+    color: #fff;
   }
   .nav-link{
     padding-left: 1em; 
   }
 
-  a{ color: #FFF;}
+  a {
+    color: #fff;
+  }
 }
 
 /* HERO UNIT */
-.welcome{
+.welcome {
   padding: 120px 0 30px 0;
 }
 
-.flexy{
+.flexy {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .hero{
+  .hero {
     max-width: 600px;
     color: #abb2b9;
   }
 
-  .hero-img img{
+  .hero-img img {
     max-width: 400px;
     margin: 0 50px;
   }
 }
 /* PROFILE */
-.profile-info{
-  background: #F8FEFF;
+.profile-info {
+  background: #f8feff;
   margin-bottom: 50px;
   padding-top: 70px;
-  
-  .container{
-  padding: 40px;
 
-    .flexy{
+  .container {
+    padding: 40px;
+
+    .flexy {
       display: flex;
       flex-wrap: wrap;
       align-items: stretch;
 
-      .personal-info{
+      .personal-info {
         max-width: 650px;
       }
 
-      .avatar{
+      .avatar {
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        img{
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin-top: 34px;
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin-top: 34px;
         }
-        a{
+        a {
           margin-top: 70px;
         }
       }
-
     }
   }
 }
 
 /* Services */
-.services{
+.services {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -124,104 +128,114 @@ nav{
     min-width: 260px;
     margin-top: 30px;
 
-    .card-header{
-      background: $slblue;
-      a{
+    .card-header {
+      background: $brand;
+      a {
         text-decoration: none;
-        color: inherit;
+        color: white;
       }
-      h5{
+      h5 {
         margin: 4px 0;
       }
       cursor: pointer;
     }
-    .card-header:hover{
-      background: $brand;
-      color: #FFF;
+    .card-header:hover {
+      background: gray;
+      color: white;
     }
   }
 }
-.p-services{
+.p-services {
   max-width: 500px;
   margin: 40px auto;
 }
-.img-services{
+.img-services {
   width: 150px;
   margin: 10px auto;
-  img{
+  img {
     width: 150px;
-    opacity: .3;
+    opacity: 0.3;
   }
 }
-.btn-services{
+.btn-services {
   display: block;
   width: 200px;
-  margin: 30px auto
+  margin: 30px auto;
 }
 
 /*FORMULARIOS*/
 /*signup*/
 
-.form-h2{
-  text-align:center;
-  padding: 120px 0 30px;
+.form-h2 {
+  text-align: center;
+  padding: 130px 0 10px;
+}
+.form-p {
+  text-align: center;
 }
 
-form{
+form {
   background: $slblue;
   max-width: 50%;
   margin: 0 auto;
-  padding:20px;
+  padding: 20px;
   border-radius: 10px;
- 
-  .form-group{
+
+  .form-group {
     max-width: 100%;
   }
-  .form-check{
-    margin:30px 0 20px;
+  .form-check {
+    margin: 30px 0 20px;
   }
-  .paragraph{
-    margin-top:2px;
+  .paragraph {
+    margin-top: 2px;
   }
   .smalltext{
     font-size: .7em;
     text-align: right;
   }
-  .but{
+  .but {
     background: $brand;
-    color:white;
+    color: #FFF;
     border: 0px;
     margin-top: 35px;
     cursor: pointer;
   }
   .but:hover{
     border-radius: 20px;
+    color: #FFF;
   }
 }
-
-.pedirservices{
+.pedirservices {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  // width: 50%;
+  // margin: 0 auto;
 
   .card {
-    min-width: 500px;
-    margin-top: 30px;
+    width: 40%;
 
-    .card-header{
-      background: $slblue;
-      a{
+    .card-header {
+      background: $brand;
+
+      a {
         text-decoration: none;
-        color: inherit;
+        color: white;
       }
-      h5{
-        margin: 4px 0;
+      h3,
+      h5 {
+        text-align: center;
+        margin: 3px;
       }
       cursor: pointer;
     }
-    .card-header:hover{
-      background: $brand;
-      color: #FFF;
+    .card-header:hover {
+      background: gray;
+      color: white;
+    }
+    .cleaner-list{
+      max-width: 100%;
     }
   }
 }
@@ -240,83 +254,89 @@ padding: 100px 0;
   padding: 120px 0;
 }
 
-
 /* Stars Rating */
-  //legend{
-  //  font-size: 1em;
-  //}
-  .rating {
-    --star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
-    padding: 0;  /* to prevent flicker when mousing over padding */
-    border: none;  /* to prevent flicker when mousing over border */
-    unicode-bidi: bidi-override; direction: rtl;  /* for CSS-only style change on hover */
-    text-align: left;  /* revert the RTL direction */
-    user-select: none;  /* disable mouse/touch selection */
-    font-size: 3em;  /* fallback - IE doesn't support CSS variables */
-    font-size: calc(var(--star-size) * 1em);  /* because `var(--star-size)em` would be too good to be true */
-    cursor: pointer;
-    /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
-    margin-bottom: 1em;
-  }
-  /* the stars */
-  .rating > label {
-    display: inline-block;
-    position: relative;
-    font-size: .7em;
-    width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
-    width: calc(var(--star-size) / 3 * 1.1em);
-    color: #F2F3F4;
-  }
-  .rating > *:hover,
-  .rating > *:hover ~ label,
-  .rating:not(:hover) > input:checked ~ label {
-    color: transparent;  /* reveal the contour/white star from the HTML markup */
-    cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
-  }
-  
-  .rating > legend:hover{
-    opacity: 1;
-    color: #424242;
-  }
-  .rating > *:hover ~ label:before,
-  .rating:not(:hover) > input:checked ~ label:before {
-    content: "★";
-    position: absolute;
-    left: 0;
-    color: gold;
-  }
-  // .rating > *:hover:before,
-  // .rating > *:hover ~ label:before,
-  // .rating:not(:hover) > input:checked ~ label:before {
-  //   content: "★";
-  //   position: absolute;
-  //   left: 0;
-  //   color: gold;
-  // }
-  .rating > input {
-    position: relative;
-    transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
-    transform: scale(var(--star-size));
-    /* the magic numbers below correlate with the font-size */
-    top: -0.5em;  /* margin-top doesn't work */
-    top: calc(var(--star-size) / 6 * -1em);
-    margin-left: -2.5em;  /* overlap the radio buttons exactly under the stars */
-    margin-left: calc(var(--star-size) / 6 * -5em);
-    z-index: 2;  /* bring the button above the stars so it captures touches/clicks */
-    opacity: 0;  /* comment to see where the radio buttons are */
-    font-size: initial; /* reset to default */
-  }
-  form.amp-form-submit-error [submit-error] {
-    color: red;
-  }
+//legend{
+//  font-size: 1em;
+//}
+.rating {
+  --star-size: 3; /* use CSS variables to calculate dependent dimensions later */
+  padding: 0; /* to prevent flicker when mousing over padding */
+  border: none; /* to prevent flicker when mousing over border */
+  unicode-bidi: bidi-override;
+  direction: rtl; /* for CSS-only style change on hover */
+  text-align: left; /* revert the RTL direction */
+  user-select: none; /* disable mouse/touch selection */
+  font-size: 3em; /* fallback - IE doesn't support CSS variables */
+  font-size: calc(
+    var(--star-size) * 1em
+  ); /* because `var(--star-size)em` would be too good to be true */
+  cursor: pointer;
+  /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 1em;
+}
+/* the stars */
+.rating > label {
+  display: inline-block;
+  position: relative;
+  font-size: 0.7em;
+  width: 1.1em; /* magic number to overlap the radio buttons on top of the stars */
+  width: calc(var(--star-size) / 3 * 1.1em);
+  color: #f2f3f4;
+}
+.rating > *:hover,
+.rating > *:hover ~ label,
+.rating:not(:hover) > input:checked ~ label {
+  color: transparent; /* reveal the contour/white star from the HTML markup */
+  cursor: inherit; /* avoid a cursor transition from arrow/pointer to text selection */
+}
 
-  /** medias **/
+.rating > legend:hover {
+  opacity: 1;
+  color: #424242;
+}
+.rating > *:hover ~ label:before,
+.rating:not(:hover) > input:checked ~ label:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+// .rating > *:hover:before,
+// .rating > *:hover ~ label:before,
+// .rating:not(:hover) > input:checked ~ label:before {
+//   content: "★";
+//   position: absolute;
+//   left: 0;
+//   color: gold;
+// }
+.rating > input {
+  position: relative;
+  transform: scale(
+    3
+  ); /* make the radio buttons big; they don't inherit font-size */
+  transform: scale(var(--star-size));
+  /* the magic numbers below correlate with the font-size */
+  top: -0.5em; /* margin-top doesn't work */
+  top: calc(var(--star-size) / 6 * -1em);
+  margin-left: -2.5em; /* overlap the radio buttons exactly under the stars */
+  margin-left: calc(var(--star-size) / 6 * -5em);
+  z-index: 2; /* bring the button above the stars so it captures touches/clicks */
+  opacity: 0; /* comment to see where the radio buttons are */
+  font-size: initial; /* reset to default */
+}
+form.amp-form-submit-error [submit-error] {
+  color: red;
+}
 
-  @media only screen and (max-width: 992px){
-    .flexy{
-      flex-direction: column;
-      h2{text-align: center;}
+/** medias **/
+
+@media only screen and (max-width: 992px) {
+  .flexy {
+    flex-direction: column;
+    h2 {
+      text-align: center;
     }
   }
+}

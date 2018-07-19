@@ -1,39 +1,47 @@
-<h2 class="form-h2">Encuentra tu TOC'leaner</h2>
-    {{message}}
+<h2 class="form-h2">
 
-<div class="pedirservices"> 
-      <form action="/cleaners" method="post">
-  {{#each cleaners}}
-  <div class="card">
-    <div class="card-header">
-      <a href="/public/{{this._id}}"><h3 class="form-h2"> {{ this.username }} </h3></a>
+  Encuentra tu TOC'leaner</h2>
+<p class="form-p">{{message}}</p>
+
+
+<div class="container">
+  <div class="pedirservices">
+
+    {{#each cleaners}}
+    <div class="card">
+      <div class="card-header">
+        <a href="/public/{{this._id}}">
+          <h5>
+            <b>{{this.name}}</b>
+          </h5>
+        </a>
       </div>
       <div class="card-body">
-      <p> Tarifa: {{ this.fee }}€/hora</p>
-      <p>Descripción: {{this.description}}</p>
-</div>
-  
-    <label for="service-date-input">
-      Fecha del servicio:
-    </label>
-    <input type="date" name="serviceDate" id="service-date-input">
-    <input type="time" name="serviceTime" id="service-time-input">
-  <input type="hidden" name="Url" value="fichalistado">
-  
+        <p> Tarifa: {{ this.fee }}€/hora</p>
+        <p>Descripción: {{this.description}}</p>
 
-  <input type="hidden" name="cleanerId" value="{{ this._id }}">
- 
+        <form action="/cleaners" method="post" class="cleaner-list">
+          <div class="form-group">
+          <label for="service-date-input">
+            Fecha del servicio:
+          </label>
+          </div>
+          <div class="form-group">
+          <input type="date" name="serviceDate" class="form-control" id="service-date-input">
+          </div>
+          <div class="form-group">
+          <input type="time" name="serviceTime" class="form-control" id="service-time-input">
+          </div>
 
-  <button>Contrata</button>
-</form> 
-    </li>
-  {{/each}}
+          <input type="hidden" name="cleanerId" value="{{ this._id }}">
 
-</div>
-</div>
-
-<a href="/profile">
-  Vuelve a tu perfil
-</a>
+<div class="form-group">
+          <button type="submit" class="but form-control">Contrata</button>
+          </div>
+        </form>
+      </div>
 
 
+    </div>
+    {{/each}}
+  </div>

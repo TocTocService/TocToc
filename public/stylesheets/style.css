@@ -1,14 +1,14 @@
 @charset "UTF-8";
 body {
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #424242;
   margin: 0;
-  background: #FDFEFE; }
+  background: #fdfefe; }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
   text-decoration: none; }
 
 h1 {
@@ -24,8 +24,9 @@ h3 {
   width: 100%; }
 
 nav {
-  background: #26C6DA;
-  color: #FFF; }
+  background: #26c6da;
+  z-index: 5;
+  color: #fff; }
   nav .navbar-brand {
     letter-spacing: 2px;
     font-size: 1.5em;
@@ -39,7 +40,7 @@ nav {
   nav .nav-link {
     padding-left: 1em; }
   nav a {
-    color: #FFF; }
+    color: #fff; }
 
 /* HERO UNIT */
 .welcome {
@@ -58,7 +59,7 @@ nav {
 
 /* PROFILE */
 .profile-info {
-  background: #F8FEFF;
+  background: #f8feff;
   margin-bottom: 50px;
   padding-top: 70px; }
   .profile-info .container {
@@ -90,16 +91,32 @@ nav {
     min-width: 260px;
     margin-top: 30px; }
     .services .card .card-header {
-      background: #E0F7FA;
+      background: #26c6da;
       cursor: pointer; }
       .services .card .card-header a {
         text-decoration: none;
-        color: inherit; }
+        color: white; }
       .services .card .card-header h5 {
         margin: 4px 0; }
     .services .card .card-header:hover {
-      background: #26C6DA;
-      color: #FFF; }
+      background: gray;
+      color: white; }
+
+.p-services {
+  max-width: 500px;
+  margin: 40px auto; }
+
+.img-services {
+  width: 150px;
+  margin: 10px auto; }
+  .img-services img {
+    width: 150px;
+    opacity: 0.3; }
+
+.btn-services {
+  display: block;
+  width: 200px;
+  margin: 30px auto; }
 
 .p-services {
   max-width: 500px;
@@ -121,10 +138,13 @@ nav {
 /*signup*/
 .form-h2 {
   text-align: center;
-  padding: 120px 0 30px; }
+  padding: 130px 0 10px; }
+
+.form-p {
+  text-align: center; }
 
 form {
-  background: #E0F7FA;
+  background: #e0f7fa;
   max-width: 50%;
   margin: 0 auto;
   padding: 20px;
@@ -145,26 +165,30 @@ form {
     margin-top: 35px;
     cursor: pointer; }
   form .but:hover {
-    border-radius: 20px; }
+    border-radius: 20px; 
+  }
 
 .pedirservices {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap; }
   .pedirservices .card {
-    min-width: 500px;
-    margin-top: 30px; }
+    width: 40%; }
     .pedirservices .card .card-header {
-      background: #E0F7FA;
+      background: #26c6da;
       cursor: pointer; }
       .pedirservices .card .card-header a {
         text-decoration: none;
-        color: inherit; }
+        color: #FFF; }
+      .pedirservices .card .card-header h3,
       .pedirservices .card .card-header h5 {
-        margin: 4px 0; }
+        text-align: center;
+        margin: 3px; }
     .pedirservices .card .card-header:hover {
-      background: #26C6DA;
+      background: gray;
       color: #FFF; }
+      .pedirservices .card .cleaner-list {
+        max-width: 100%; }
 
 /* EDIT */
 .edit-container {
@@ -174,7 +198,9 @@ form {
 
 /* ABOUT */
 .top-cont {
-  padding: 120px 0; }
+  padding: 120px 0; 
+}
+    
 
 /* Stars Rating */
 .rating {
@@ -193,7 +219,7 @@ form {
   /* disable mouse/touch selection */
   font-size: 3em;
   /* fallback - IE doesn't support CSS variables */
-  font-size: calc(var(--star-size) * 1em);
+  font-size: calc( var(--star-size) * 1em);
   /* because `var(--star-size)em` would be too good to be true */
   cursor: pointer;
   /* disable touch feedback on cursor: pointer - http://stackoverflow.com/q/25704650/1269037 */
@@ -205,11 +231,11 @@ form {
 .rating > label {
   display: inline-block;
   position: relative;
-  font-size: .7em;
+  font-size: 0.7em;
   width: 1.1em;
   /* magic number to overlap the radio buttons on top of the stars */
   width: calc(var(--star-size) / 3 * 1.1em);
-  color: #F2F3F4; }
+  color: #f2f3f4; }
 
 .rating > *:hover,
 .rating > *:hover ~ label,
