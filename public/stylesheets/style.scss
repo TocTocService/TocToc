@@ -271,10 +271,28 @@ padding: 100px 0;
   }
 }
 
+.blue{
+  background: $brand;
+}
+
 /* ABOUT */
 .top-cont{
-  padding: 120px 0;
-}
+  padding: 70px 0 20px;
+  margin: 0 auto;
+
+
+  h2{
+    text-align: center;
+  }
+  
+  }
+  
+  .about-img{
+    margin: 0 auto;
+    width: 60%;
+
+  }
+
 
 /* FOOTER */
 footer{

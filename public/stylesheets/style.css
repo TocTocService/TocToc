@@ -189,14 +189,14 @@ form {
     .pedirservices .card .cleaner-list {
       max-width: 100%; }
 
-.rate-form {
-  background: #FFF; }
-
 /* EDIT */
 .edit-container {
   padding: 100px 0; }
   .edit-container .photo {
     margin-top: 30px; }
+
+.blue {
+  background: #26c6da; }
 
 /* ABOUT */
 .top-cont {
