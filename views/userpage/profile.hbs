@@ -59,12 +59,12 @@
           <p><b>Estado</b>: {{ this.confirm }} </p>
            <p><a href="/delete/{{this._id}}">Cancelar servicio</a>
           
-        {{!-- 
-        {{#ifEquals this.confirm "Pendiente" this}} --}}
-        {{#unless hasVoted}}
+        
+        {{#ifEquals this.confirm "Confirmado" this}}
+        {{#unless ../hasVoted}}
         <p><a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a></p>
         {{/unless}}
-        {{!-- {{/if}} --}}
+        {{/ifEquals}}
 
      
       

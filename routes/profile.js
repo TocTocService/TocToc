@@ -21,7 +21,9 @@ profile.get("/profile", (req, res, next) => {
   Rating
   .find(query)
   .then( data => {
-    hasVoted = true;
+    if ( data.length > 0){
+      hasVoted = true
+    }
     data.forEach((e) => {
       totalRate += Math.floor((e.speed + e.satisfaction) / (data.length * 2));
       return totalRate;
