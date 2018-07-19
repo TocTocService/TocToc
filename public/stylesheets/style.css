@@ -36,6 +36,8 @@ nav {
     justify-content: flex-end; }
   nav .navbar-toggler-icon {
     color: #FFF; }
+  nav .nav-link {
+    padding-left: 1em; }
   nav a {
     color: #FFF; }
 
@@ -99,11 +101,27 @@ nav {
       background: #26C6DA;
       color: #FFF; }
 
+.p-services {
+  max-width: 500px;
+  margin: 40px auto; }
+
+.img-services {
+  width: 150px;
+  margin: 10px auto; }
+  .img-services img {
+    width: 150px;
+    opacity: .3; }
+
+.btn-services {
+  display: block;
+  width: 200px;
+  margin: 30px auto; }
+
 /*FORMULARIOS*/
 /*signup*/
 .form-h2 {
   text-align: center;
-  margin: 40px 0 30px; }
+  padding: 120px 0 30px; }
 
 form {
   background: #E0F7FA;
@@ -118,10 +136,16 @@ form {
   form .paragraph {
     margin-top: 2px; }
   form .smalltext {
-    font-size: 12px; }
+    font-size: .7em;
+    text-align: right; }
   form .but {
     background: #26C6DA;
-    color: white; }
+    color: white;
+    border: 0px;
+    margin-top: 35px;
+    cursor: pointer; }
+  form .but:hover {
+    border-radius: 20px; }
 
 .pedirservices {
   display: flex;
@@ -141,21 +165,16 @@ form {
     .pedirservices .card .card-header:hover {
       background: #26C6DA;
       color: #FFF; }
-.p-services {
-  max-width: 500px;
-  margin: 40px auto; }
 
-.img-services {
-  width: 150px;
-  margin: 10px auto; }
-  .img-services img {
-    width: 150px;
-    opacity: .3; }
+/* EDIT */
+.edit-container {
+  padding: 100px 0; }
+  .edit-container .photo {
+    margin-top: 30px; }
 
-.btn-services {
-  display: block;
-  width: 200px;
-  margin: 30px auto; }
+/* ABOUT */
+.top-cont {
+  padding: 120px 0; }
 
 /* Stars Rating */
 .rating {

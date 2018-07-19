@@ -1,44 +1,42 @@
 <h2>Edita tu perfil</h2>
+<div class="container edit-container">
+  <form action="/edit/{{user.id}}" method="POST" id="form-container" enctype="multipart/form-data" class="signup">
+    <div class="form-group">
+      <label for="username">Usuario</label>
+      <input id="username" type="text" class="form-control" name="username" value="{{user.username}}">
+    </div>
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input id="name" type="text" class="form-control" name="name" value="{{user.name}}">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" class="form-control" name="email" value="{{user.email}}">
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea id="description" type="text" class="form-control" name="description">{{user.description}}</textarea>
+    </div>
+      {{#if user.isToc}}
+      <div class="form-group">
+        <label for="fee">Tarifa</label>
+        <input id="fee" type="text" class="form-control" name="fee" value="{{user.fee}}">
+      </div>
+      {{else}}
+      <div class="form-group">
+        <label for="address">Dirección</label>
+        <input id="address" type="text" class="form-control" name="address" value="{{user.address}}">
+      </div>
+      {{/if}}
+      <div class="form-group photo">
+        <label for="photo">Sube una foto de perfil ;-)</label>
+        <input type="file" name="photo">    
+      </div>
 
-<form action="/edit/{{user.id}}" method="POST" id="form-container" enctype="multipart/form-data">
-  <label for="username">Usuario</label>
-  <input id="username" type="text" name="username" value="{{user.username}}">
-  <br><br>
-  
-  <label for="name">Nombre</label>
-  <input id="name" type="text" name="name" value="{{user.name}}">
-  <br><br>
-
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" value="{{user.email}}">
-  <br><br>
-
-  <label for="description">Descripción</label>
-  <textarea id="description" type="text" name="description">{{user.description}}</textarea>
-  <br><br>
-  
-  {{#if user.isToc}}
-    <label for="fee">Tarifa</label>
-    <input id="fee" type="text" name="fee" value="{{user.fee}}">
-    <br><br>
-  {{else}}
-  <label for="address">Dirección</label>
-  <input id="address" type="text" name="address" value="{{user.address}}">
-  <br><br>
-  {{/if}}
-
-  <div class="form-group">
-    <label for="photo">Sube una foto de perfil ;-)</label>
-    <input type="file" name="photo">    
-  </div>
-
-
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Actualiza tus datos</button>
-
-</form>
+      {{#if message }}
+        <div class="error-message">{{ message }}</div>
+      {{/if}}
+      
+      <button type="submit" class="but form-control">Actualiza tus datos</button>
+  </form>
+</div>

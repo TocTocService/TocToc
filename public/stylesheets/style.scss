@@ -49,6 +49,9 @@ nav{
   .navbar-toggler-icon{
     color: #FFF;
   }
+  .nav-link{
+    padding-left: 1em; 
+  }
 
   a{ color: #FFF;}
 }
@@ -161,7 +164,7 @@ nav{
 
 .form-h2{
   text-align:center;
-  margin:40px 0 30px;
+  padding: 120px 0 30px;
 }
 
 form{
@@ -170,7 +173,6 @@ form{
   margin: 0 auto;
   padding:20px;
   border-radius: 10px;
-
  
   .form-group{
     max-width: 100%;
@@ -182,11 +184,18 @@ form{
     margin-top:2px;
   }
   .smalltext{
-    font-size: 12px;
+    font-size: .7em;
+    text-align: right;
   }
   .but{
     background: $brand;
     color:white;
+    border: 0px;
+    margin-top: 35px;
+    cursor: pointer;
+  }
+  .but:hover{
+    border-radius: 20px;
   }
 }
 
@@ -215,6 +224,20 @@ form{
       color: #FFF;
     }
   }
+}
+
+/* EDIT */
+.edit-container{
+padding: 100px 0;
+
+  .photo{
+    margin-top: 30px;
+  }
+}
+
+/* ABOUT */
+.top-cont{
+  padding: 120px 0;
 }
 
 
