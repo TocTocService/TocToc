@@ -36,7 +36,7 @@ nav {
   nav .nabvar-collapse {
     justify-content: flex-end; }
   nav .navbar-toggler-icon {
-    color: #FFF; }
+    color: #fff; }
   nav .nav-link {
     padding-left: 1em; }
   nav a {
@@ -118,22 +118,6 @@ nav {
   width: 200px;
   margin: 30px auto; }
 
-.p-services {
-  max-width: 500px;
-  margin: 40px auto; }
-
-.img-services {
-  width: 150px;
-  margin: 10px auto; }
-  .img-services img {
-    width: 150px;
-    opacity: .3; }
-
-.btn-services {
-  display: block;
-  width: 200px;
-  margin: 30px auto; }
-
 /*FORMULARIOS*/
 /*signup*/
 .form-h2 {
@@ -159,14 +143,14 @@ form {
     font-size: .7em;
     text-align: right; }
   form .but {
-    background: #26C6DA;
-    color: white;
+    background: #26c6da;
+    color: #FFF;
     border: 0px;
     margin-top: 35px;
     cursor: pointer; }
   form .but:hover {
-    border-radius: 20px; 
-  }
+    border-radius: 20px;
+    color: #FFF; }
 
 .pedirservices {
   display: flex;
@@ -179,16 +163,16 @@ form {
       cursor: pointer; }
       .pedirservices .card .card-header a {
         text-decoration: none;
-        color: #FFF; }
+        color: white; }
       .pedirservices .card .card-header h3,
       .pedirservices .card .card-header h5 {
         text-align: center;
         margin: 3px; }
     .pedirservices .card .card-header:hover {
       background: gray;
-      color: #FFF; }
-      .pedirservices .card .cleaner-list {
-        max-width: 100%; }
+      color: white; }
+    .pedirservices .card .cleaner-list {
+      max-width: 100%; }
 
 /* EDIT */
 .edit-container {
@@ -196,11 +180,19 @@ form {
   .edit-container .photo {
     margin-top: 30px; }
 
+.blue {
+  background: #26c6da; }
+
 /* ABOUT */
 .top-cont {
-  padding: 120px 0; 
-}
-    
+  padding: 70px 0 20px;
+  margin: 0 auto; }
+  .top-cont h2 {
+    text-align: center; }
+
+.about-img {
+  margin: 0 auto;
+  width: 60%; }
 
 /* Stars Rating */
 .rating {
