@@ -12,14 +12,39 @@ a {
   text-decoration: none;
 }
 
+h1{
+  font-weight: 700;
+}
+
+/* Blue Colors */
+$brand: #26C6DA;
+$lightblue: #B2EBF2;
+$slblue: #E0F7FA;
+
 /* MENU */
 nav{
-  background: #26C6DA;
+  background: $brand;
   color: #FFF;
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: flex-end;
+  // width: 100%;
+  // height: 70px;
+  // display: flex;
+  // justify-content: flex-end;
+
+  .navbar-brand{ 
+    letter-spacing: 2px;
+    font-size: 1.5em;
+    font-weight: 700
+  }
+
+  i.fa{font-size: 1.5em;}
+
+   .nabvar-collapse{
+    justify-content: flex-end;
+  }
+
+  .navbar-toggler-icon{
+    color: #FFF;
+  }
 
   // ul li{
   //   display: inline-block;
@@ -31,14 +56,32 @@ nav{
 }
 
 /* HERO UNIT */
+.welcome{
+  margin: 70px 0 35px 0;
+}
 
+.flexy{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .hero{
+    max-width: 600px;
+    color: #abb2b9;
+  }
+
+  .hero-img img{
+    max-width: 400px;
+    margin: 0 50px;
+  }
+}
 /* PROFILE */
 .avatar{
   img{
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid #26C6DA;
+  border: 2px solid $brand;
   }
 }
 
@@ -99,4 +142,13 @@ nav{
   }
   form.amp-form-submit-error [submit-error] {
     color: red;
+  }
+
+  /** medias **/
+
+  @media only screen and (max-width: 992px){
+    .flexy{
+      flex-direction: column;
+      h2{text-align: center;}
+    }
   }
