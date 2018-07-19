@@ -16,27 +16,32 @@ const users = [
     name: "Anna",
     password: hashPass,
     email: "a@gmail.com",
-    address: "Buganvilla 6",
+    address: "Calle Buganvilla, 6. Madrid",
     isToc: false,
-    availability: false //req o no?
+    description,
+    avatarName,
+    avatarPath
   },
   {
-    username: "juan",
-    name: "Juan",
+    username: "Juan",
+    name: "Paquita",
     password: hashPass,
     email: "j@gmail.com",
     isToc: false,
-    availability: false
+    description: "Me encanta que venga a organizar mi casa un especialista",
+    avatarName,
+    avatarPath
   },
   {
     username: "paulagarcia",
     name: "Paula",
     password: hashPass,
     email: "p@gmail.com",
-    address: "Chopera 14",
     isToc: true,
-    availability: true,
-    fee: 15
+    fee: 15,
+    description: "Hola! Soy Paula y tengo un TOC diagnosticado. Esta nueva app me ha dado la oportunidad de paliar mi ansiedad a la vez que ahorro. Se puede pedir más? :-) Estaré encantada de limpiar y ordenar tu casa",
+    avatarName,
+    avatarPath
   },
   {
     username: "malmarc",
@@ -44,8 +49,10 @@ const users = [
     password: hashPass,
     email: "mm@gmail.com",
     isToc: true,
-    availability: true,
-    fee: 10
+    fee: 20,
+    description,
+    avatarName,
+    avatarPath
   },
 ];
 

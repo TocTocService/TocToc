@@ -9,7 +9,6 @@ const userSchema = new Schema(
     email: {type: String, required: true, unique: true},
     address: {type: String},
     isToc: {type: Boolean, default: false},
-    availability: {type: Boolean, default: true},
     fee: { type: Number, default: null },
     description: {type: String},
     avatarName: String,
