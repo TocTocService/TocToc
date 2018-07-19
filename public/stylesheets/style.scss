@@ -94,11 +94,11 @@ nav {
       display: flex;
       flex-wrap: wrap;
       align-items: stretch;
+      margin-top: 40px;
 
       .personal-info {
         max-width: 650px;
       }
-
       .avatar {
         display: flex;
         flex-direction: column;
@@ -108,7 +108,6 @@ nav {
           width: 200px;
           height: 200px;
           border-radius: 50%;
-          margin-top: 34px;
         }
         a {
           margin-top: 70px;
@@ -118,10 +117,28 @@ nav {
   }
 }
 
+/* Public */
+.public{
+  padding: 120px 50px;
+  text-align: center;
+   .avatar2{
+     display: flex;
+     flex-direction: column;
+     align-items: center; 
+   }   
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+
 /* Services */
 .services {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 
   .card {
@@ -139,7 +156,7 @@ nav {
       }
       cursor: pointer;
     }
-    .card-header:hover {
+    .card-header:hover, .card-header:active {
       background: gray;
       color: white;
     }
@@ -168,7 +185,7 @@ nav {
 
 .form-h2 {
   text-align: center;
-  padding: 130px 0 10px;
+  padding: 140px 0 20px 0;
 }
 .form-p {
   text-align: center;
@@ -203,6 +220,7 @@ form {
   }
   .but:hover{
     border-radius: 20px;
+    background: gray;
     color: #FFF;
   }
 }
@@ -240,6 +258,10 @@ form {
   }
 }
 
+.rate-form{
+  background: #FFF;
+}
+
 /* EDIT */
 .edit-container{
 padding: 100px 0;
@@ -254,10 +276,35 @@ padding: 100px 0;
   padding: 120px 0;
 }
 
+/* FOOTER */
+footer{
+  margin-top: 50px;
+  padding: 5px 20px;
+  background: #424242;
+  text-align: right;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: .8em;
+  height: 40px;
+
+  p{margin: 0;}
+}
+
 /* Stars Rating */
-//legend{
-//  font-size: 1em;
-//}
+legend{
+ margin: 0;
+}
+.check{
+  display: flex;
+  .radio-btn{ 
+    padding-right: 30px;
+  }
+}
+fieldset.rating{ 
+  margin-bottom: 20px;
+}
 .rating {
   --star-size: 3; /* use CSS variables to calculate dependent dimensions later */
   padding: 0; /* to prevent flicker when mousing over padding */
@@ -331,12 +378,42 @@ form.amp-form-submit-error [submit-error] {
 }
 
 /** medias **/
-
-@media only screen and (max-width: 992px) {
-  .flexy {
+@media only screen and (max-width: 969px) {
+  .hero-img img{
+    width: 330px;
+  }
+  .container.flexy{
     flex-direction: column;
-    h2 {
+    h2{
       text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 769px) {
+    .pedirservices .card{
+      width: 80%;
+      margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width: 771px) {
+  .profile-info{
+    .container{
+      .flexy {
+        flex-direction: column-reverse;
+        h2 {
+          text-align: center;
+        }
+        .avatar{
+          img{
+          width: 120px;
+          height: 120px;
+          }
+          a{
+            margin: 30px 0 50px 0;
+          }
+        }
+      } 
     }
   }
 }

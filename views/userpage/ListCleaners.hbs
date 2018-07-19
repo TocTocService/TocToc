@@ -1,12 +1,8 @@
-<h2 class="form-h2">
-
-  Encuentra tu TOC'leaner</h2>
+<h2 class="form-h2">Encuentra tu TOC'leaner</h2>
 <p class="form-p">{{message}}</p>
-
 
 <div class="container">
   <div class="pedirservices">
-
     {{#each cleaners}}
     <div class="card">
       <div class="card-header">
@@ -22,26 +18,25 @@
 
         <form action="/cleaners" method="post" class="cleaner-list">
           <div class="form-group">
-          <label for="service-date-input">
-            Fecha del servicio:
-          </label>
+            <label for="service-date-input">
+              Fecha del servicio:
+            </label>
           </div>
           <div class="form-group">
-          <input type="date" name="serviceDate" class="form-control" id="service-date-input">
+            <input type="date" name="serviceDate" class="form-control" id="service-date-input">
           </div>
           <div class="form-group">
-          <input type="time" name="serviceTime" class="form-control" id="service-time-input">
+            <input type="time" name="serviceTime" class="form-control" id="service-time-input">
           </div>
 
           <input type="hidden" name="cleanerId" value="{{ this._id }}">
 
-<div class="form-group">
-          <button type="submit" class="but form-control">Contrata</button>
+          <div class="form-group">
+            <button type="submit" class="but form-control">Contrata</button>
           </div>
         </form>
       </div>
-
-
     </div>
-    {{/each}}
+  {{/each}}
   </div>
+</div>

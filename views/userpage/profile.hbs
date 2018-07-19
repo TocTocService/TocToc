@@ -4,12 +4,11 @@
     <h2>Hola {{user.username}}!</h2>
     <div class="flexy">
       <div class="personal-info">
-      <h3>Tu info personal:</h3>
-        <p><b>Usuario</b><br>  {{user.username}}</p>
+        <p class="hr-info"><b>Usuario</b><br>  {{user.username}}</p>
         <p><b>Nombre</b> <br> {{user.name}}</p>
         <p><b>Email</b> <br> {{user.email}}</p>
         {{#if user.isToc}}
-          <p><b>Tarifa (por horas)</b><br>{{user.fee}}</p>
+          <p><b>Tarifa</b><br>{{user.fee}} €/h</p>
         {{else}}
           <p><b>Dirección</b><br> {{user.address}}</p>
         {{/if}}
@@ -26,13 +25,13 @@
 {{!-- Servicios -----------------------------------}}
 <div class="container">
 {{#if user.isToc}}
-  <h3>Tus servicios</h3>
+  {{!-- <h3>Tus servicios</h3>
   <p>El precio por hora es: <b>{{ user.fee }}€</b></p>
 
   <h2>Tu rating es</h2>
   <div>
     <p>{{totalRate}}</p>
-  </div>
+  </div> --}}
 
   <h3 class="text-center">Tus próximos servicios</h3>
   <div class="services">
@@ -81,14 +80,13 @@
           <p class="card-title"><b>Fecha</b>: {{ this.serviceDate }}</p>
           <p class="card-text"><b>Hora</b>: {{ serviceTime }}</p>
           <p class="card-text"><b>Estado</b>: {{ this.confirm }}</p>
-          <a href="/delete/{{this._id}}" class="btn btn-primary text-center">Cancelar servicio</a>
-        </div>
-      
+          <a href="/delete/{{this._id}}" class="btn btn-danger">Cancelar servicio</a>
       {{#ifEquals this.confirm "Confirmado" this}} 
         {{#unless ../hasVoted}}
-          <a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a>
+          <a href="/rates/{{this.cleaner.id}}" class="btn btn-warning">Valora a tu TOC'leaner</a>
         {{/unless}} 
       {{/ifEquals}} 
+        </div>      
       </div>
     {{/each}} 
   {{/if}}

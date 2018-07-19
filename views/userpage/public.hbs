@@ -1,50 +1,72 @@
-<div class="avatar">
-  <img src="{{ficha.avatarPath}}" alt="Avatar">
-</div>
-
-{{#if ficha.isToc}}
-<p>Usuario: {{ ficha.username }} </p>
-<p>Nombre: {{ ficha.name }} </p>
-<p>Tarifa: {{ficha.fee}}€</p>
-<p>Descripción: {{ficha.description}}</p>
-<p>Valoración media: {{totalRate}}</p>
-<p>{{message}}</p>
-<form action="/publicservicio" method="post">
+<div class="public">
+  <div class="avatar2">
+    <img src="{{ficha.avatarPath}}" alt="Avatar">
+  </div>
   <div>
-    <label for="service-date-input">
-      Fecha del servicio:
-    </label>
-    <input type="date" name="serviceDate" id="service-date-input">
-    <input type="time" name="serviceTime" id="service-time-input">
-
+    <p>
+      <b>Descripción.</b> {{ficha.description}}</p>
+    <p>
+      <b>Usuario.</b> {{ ficha.username }} </p>
+    <p>
+      <b>Nombre.</b> {{ ficha.name }} </p>
+    {{#if ficha.isToc}}
+    <p>
+      <b>Tarifa.</b> {{ficha.fee}}€</p>
+    <p>
+      <b>Valoración media.</b> {{totalRate}}</p>
   </div>
 
-  <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
-  <input type="hidden" name="Url" value="fichapublic">
-  <input type="submit" value="Contrata">
-</form>
+  <p>{{message}}</p>
 
-<a href="/cleaners">
-  Buscar otro TOC'leaner
-</a>
+  {{!--
+  <div class="card"> --}}
+    <div class="card-body">
+      <form action="/publicservicio" method="post" class="cleaner-list">
+        <div class="form-group">
+          <label for="service-date-input">
+            Fecha del servicio:
+          </label>
+        </div>
+        <div class="form-group">
+          <input type="date" name="serviceDate" class="form-control" id="service-date-input">
+        </div>
+        <div class="form-group">
+          <input type="time" name="serviceTime" class="form-control" id="service-time-input">
+        </div>
+        <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
+        <input type="hidden" name="Url" value="fichapublic">
+        <div class="form-group">
+          <button type="submit" class="but form-control">Contrata</button>
+        </div>
+      </form>
+    </div>
+    {{!-- </div> --}} {{!--
+  <form action="/publicservicio" method="post">
+    <div>
+      <label for="service-date-input">
+        Fecha del servicio:
+      </label>
+      <input type="date" name="serviceDate" id="service-date-input">
+      <input type="time" name="serviceTime" id="service-time-input">
+    </div>
+    <input type="hidden" name="cleanerId" value="{{ ficha._id }}">
+    <input type="hidden" name="Url" value="fichapublic">
+    <input type="submit" value="Contrata">
+  </form> --}}
 
+  <a href="/cleaners">
+    Buscar otro TOC'leaner
+  </a>
 
-{{else}}
-<p>Usuario: {{ ficha.username }} </p>
-<p>Nombre: {{ ficha.name }} </p>
-<p>Descripción: {{ficha.description}}</p>
+  {{else}}
+  <p>
+    <b>Dirección.</b> {{ficha.address}}</p>
 
-{{!-- {{#ifEquals this.confirm "Confirmado" this}} --}}
-<p>Dirección: {{ficha.address}}</p>
-{{!-- {{/ifEquals}} --}}
+  <div id="map" class="map_canvas" style="height:500px"></div>
+  <input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
 
-<div id="map" class="map_canvas" style="height:500px"></div>
-<input id="geocomplete" type="hidden" placeholder="Type in an address" value="{{ficha.address}}" autocomplete="off">
+  <a href="/profile">Vuelve para confirmar</a>
 
-
-
-<a href="/profile">
-  Vuelve para confirmar
-</a>
-
-{{/if}}
+  {{/if}}
+</div>
+</div>

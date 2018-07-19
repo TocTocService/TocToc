@@ -36,7 +36,7 @@ nav {
   nav .nabvar-collapse {
     justify-content: flex-end; }
   nav .navbar-toggler-icon {
-    color: #FFF; }
+    color: #fff; }
   nav .nav-link {
     padding-left: 1em; }
   nav a {
@@ -67,7 +67,8 @@ nav {
     .profile-info .container .flexy {
       display: flex;
       flex-wrap: wrap;
-      align-items: stretch; }
+      align-items: stretch;
+      margin-top: 40px; }
       .profile-info .container .flexy .personal-info {
         max-width: 650px; }
       .profile-info .container .flexy .avatar {
@@ -77,15 +78,28 @@ nav {
         .profile-info .container .flexy .avatar img {
           width: 200px;
           height: 200px;
-          border-radius: 50%;
-          margin-top: 34px; }
+          border-radius: 50%; }
         .profile-info .container .flexy .avatar a {
           margin-top: 70px; }
+
+/* Public */
+.public {
+  padding: 120px 50px;
+  text-align: center; }
+  .public .avatar2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .public img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px; }
 
 /* Services */
 .services {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap; }
   .services .card {
     min-width: 260px;
@@ -98,7 +112,7 @@ nav {
         color: white; }
       .services .card .card-header h5 {
         margin: 4px 0; }
-    .services .card .card-header:hover {
+    .services .card .card-header:hover, .services .card .card-header:active {
       background: gray;
       color: white; }
 
@@ -118,27 +132,11 @@ nav {
   width: 200px;
   margin: 30px auto; }
 
-.p-services {
-  max-width: 500px;
-  margin: 40px auto; }
-
-.img-services {
-  width: 150px;
-  margin: 10px auto; }
-  .img-services img {
-    width: 150px;
-    opacity: .3; }
-
-.btn-services {
-  display: block;
-  width: 200px;
-  margin: 30px auto; }
-
 /*FORMULARIOS*/
 /*signup*/
 .form-h2 {
   text-align: center;
-  padding: 130px 0 10px; }
+  padding: 140px 0 20px 0; }
 
 .form-p {
   text-align: center; }
@@ -159,14 +157,15 @@ form {
     font-size: .7em;
     text-align: right; }
   form .but {
-    background: #26C6DA;
-    color: white;
+    background: #26c6da;
+    color: #FFF;
     border: 0px;
     margin-top: 35px;
     cursor: pointer; }
   form .but:hover {
-    border-radius: 20px; 
-  }
+    border-radius: 20px;
+    background: gray;
+    color: #FFF; }
 
 .pedirservices {
   display: flex;
@@ -179,16 +178,19 @@ form {
       cursor: pointer; }
       .pedirservices .card .card-header a {
         text-decoration: none;
-        color: #FFF; }
+        color: white; }
       .pedirservices .card .card-header h3,
       .pedirservices .card .card-header h5 {
         text-align: center;
         margin: 3px; }
     .pedirservices .card .card-header:hover {
       background: gray;
-      color: #FFF; }
-      .pedirservices .card .cleaner-list {
-        max-width: 100%; }
+      color: white; }
+    .pedirservices .card .cleaner-list {
+      max-width: 100%; }
+
+.rate-form {
+  background: #FFF; }
 
 /* EDIT */
 .edit-container {
@@ -198,11 +200,35 @@ form {
 
 /* ABOUT */
 .top-cont {
-  padding: 120px 0; 
-}
-    
+  padding: 120px 0; }
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+  padding: 5px 20px;
+  background: #424242;
+  text-align: right;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: .8em;
+  height: 40px; }
+  footer p {
+    margin: 0; }
 
 /* Stars Rating */
+legend {
+  margin: 0; }
+
+.check {
+  display: flex; }
+  .check .radio-btn {
+    padding-right: 30px; }
+
+fieldset.rating {
+  margin-bottom: 20px; }
+
 .rating {
   --star-size: 3;
   /* use CSS variables to calculate dependent dimensions later */
@@ -279,10 +305,28 @@ form.amp-form-submit-error [submit-error] {
   color: red; }
 
 /** medias **/
-@media only screen and (max-width: 992px) {
-  .flexy {
+@media only screen and (max-width: 969px) {
+  .hero-img img {
+    width: 330px; }
+  .container.flexy {
     flex-direction: column; }
-    .flexy h2 {
+    .container.flexy h2 {
       text-align: center; } }
+
+@media only screen and (max-width: 769px) {
+  .pedirservices .card {
+    width: 80%;
+    margin-bottom: 30px; } }
+
+@media only screen and (max-width: 771px) {
+  .profile-info .container .flexy {
+    flex-direction: column-reverse; }
+    .profile-info .container .flexy h2 {
+      text-align: center; }
+    .profile-info .container .flexy .avatar img {
+      width: 120px;
+      height: 120px; }
+    .profile-info .container .flexy .avatar a {
+      margin: 30px 0 50px 0; } }
 
 /*# sourceMappingURL=style.css.map */
