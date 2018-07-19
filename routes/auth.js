@@ -32,14 +32,14 @@ authRoutes.post("/signup", (req, res, next) => {
 
 
   if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", { message: "Introduce todos los campos" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if(err)console.log(err);
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", { message: "El usuario ya existe" });
       return;
     }
 
@@ -56,7 +56,7 @@ authRoutes.post("/signup", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("auth/signup", { message: "Something went wrong" });
+        res.render("auth/signup", { message: "Algo ha pasado" });
       } else {
         res.redirect("/login");
       }
