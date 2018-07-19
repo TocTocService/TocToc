@@ -28,6 +28,19 @@ cleanPickRoutes.get("/cleaners", (req, res, next) => {
 });
 
 cleanPickRoutes.post("/cleaners", (req, res, next) => {
+  if (req.body.serviceTime == "" || req.body.serviceDate == "") {
+    User.find({ isToc: true })
+      .then(cleanerList => {
+        res.render("userpage/ListCleaners", {
+          cleaners: cleanerList,
+          message: "Es necesario indicar hora y fecha"
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return;
+  }
   const now = new Date();
   const date = new Date(req.body.serviceDate);
 
@@ -46,7 +59,7 @@ cleanPickRoutes.post("/cleaners", (req, res, next) => {
   }
 
   const serviceInfo = {
-    serviceDate: moment(req.body.serviceDate).format("dddd D MMMM YYYY"),
+    serviceDate: moment(req.body.serviceDate).format("YYYY-MM-DD, dddd"),
     serviceTime: req.body.serviceTime,
     cleaner: req.body.cleanerId,
     user: req.user._id
@@ -54,6 +67,58 @@ cleanPickRoutes.post("/cleaners", (req, res, next) => {
 
   const theService = new PickDate(serviceInfo);
   console.log(theService);
+
+  theService.save(err => {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    res.redirect("/profile");
+  });
+});
+
+cleanPickRoutes.post("/publicservicio", (req, res, next) => {
+  if (req.body.serviceTime == "" || req.body.serviceDate == "") {
+    User.findById(req.body.cleanerId)
+      .then(ficha => {
+        console.log(ficha)
+        res.render("userpage/public", {
+          ficha,
+          message: "Es necesario indicar hora y fecha"
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return;
+  }
+
+  const now = new Date();
+  const date = new Date(req.body.serviceDate);
+
+  if (now > date || date.getFullYear() >= 2019) {
+    User.findById(req.body.cleanerId, (err, ficha) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render("userpage/public", {
+        message: "No se puede contratar para esas fechas",
+        ficha
+      });
+    });
+    return;
+  }
+
+  const serviceInfo = {
+    serviceDate: moment(req.body.serviceDate).format("YYYY-MM-DD, dddd"),
+    serviceTime: req.body.serviceTime,
+    cleaner: req.body.cleanerId,
+    user: req.user._id
+  };
+
+  const theService = new PickDate(serviceInfo);
 
   theService.save(err => {
     if (err) {

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>{{title}}</title>
   <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
@@ -28,11 +27,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/cleaners">Pide un TOC'leaner</a>
         </li>
+        {{#if user}}
         <li class="nav-item">
           <a class="nav-link" href="/profile">Mi perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Log Out</a>
+          <a class="nav-link" href="/logout">Cerrar Session</a>
         </li>
         {{else}}
         <li class="nav-item">
