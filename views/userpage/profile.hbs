@@ -9,14 +9,15 @@
         <p><b>Nombre</b> <br> {{user.name}}</p>
         <p><b>Email</b> <br> {{user.email}}</p>
         {{#if user.isToc}}
-          <p>{{user.fee}}</p>
+          <p><b>Tarifa (por horas)</b><br>{{user.fee}}</p>
         {{else}}
-          <p>Dirección.</b> {{user.address}}</p>
+          <p><b>Dirección</b><br> {{user.address}}</p>
         {{/if}}
-        <p>Algo sobre ti.</b> {{user.description}}</p>
+        <p><b>Algo sobre ti</b><br> {{user.description}}</p>
       </div>
       <div class="avatar">
         <img src="{{user.avatarPath}}" alt="Avatar">
+        <a href='/edit/{{user.id}}' class="btn btn-primary">Editar</a>
       </div>
     </div>
   </div>
@@ -57,7 +58,16 @@
 {{else}} 
 </div>
 
-  <h3 class="text-center">Tus servicios pendientes</h3>
+  {{#if services}}
+    <h3 class="text-center">Tus servicios pendientes</h3>
+  {{else}}
+    <h3 class="text-center">¿Quieres pedir un TOC'leaner?</h3>
+    <p class="text-center p-services">Sólo tienes que echar un vistazo a la lista de TOC'leaners y concertar una cita, así de fácil</p>
+    <div class="img-services">
+      <img src="/images/031-cleaning.png">
+    </div>
+    <a href="/cleaners" class="btn btn-primary btn-services">Pide un TOC'leaner</a>
+  {{/if}}
   <div class="services">  
   {{#if services}} 
     {{#each services}}
@@ -71,7 +81,7 @@
           <p class="card-title"><b>Fecha</b>: {{ this.serviceDate }}</p>
           <p class="card-text"><b>Hora</b>: {{ serviceTime }}</p>
           <p class="card-text"><b>Estado</b>: {{ this.confirm }}</p>
-          <a href="/delete/{{this._id}}" class="btn btn-primary">Cancelar servicio</a>
+          <a href="/delete/{{this._id}}" class="btn btn-primary text-center">Cancelar servicio</a>
         </div>
       
       {{#ifEquals this.confirm "Confirmado" this}} 
@@ -85,5 +95,3 @@
 {{/if}}
 </div>
 </div>
-
-  <a href='/edit/{{user.id}}'>Edita tu perfil</a>
