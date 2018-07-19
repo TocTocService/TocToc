@@ -55,9 +55,6 @@ nav {
   border: 2px solid #26C6DA; }
 
 /* Stars Rating */
-legend {
-  font-size: 1em; }
-
 .rating {
   --star-size: 3;
   /* use CSS variables to calculate dependent dimensions later */
@@ -86,6 +83,7 @@ legend {
 .rating > label {
   display: inline-block;
   position: relative;
+  font-size: .7em;
   width: 1.1em;
   /* magic number to overlap the radio buttons on top of the stars */
   width: calc(var(--star-size) / 3 * 1.1em);
@@ -99,7 +97,10 @@ legend {
   cursor: inherit;
   /* avoid a cursor transition from arrow/pointer to text selection */ }
 
-.rating > *:hover:before,
+.rating > legend:hover {
+  opacity: 1;
+  color: #424242; }
+
 .rating > *:hover ~ label:before,
 .rating:not(:hover) > input:checked ~ label:before {
   content: "★";

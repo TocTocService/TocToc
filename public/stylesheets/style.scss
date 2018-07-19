@@ -87,9 +87,9 @@ nav{
 
 
 /* Stars Rating */
-  legend{
-    font-size: 1em;
-  }
+  //legend{
+  //  font-size: 1em;
+  //}
   .rating {
     --star-size: 3;  /* use CSS variables to calculate dependent dimensions later */
     padding: 0;  /* to prevent flicker when mousing over padding */
@@ -109,6 +109,7 @@ nav{
   .rating > label {
     display: inline-block;
     position: relative;
+    font-size: .7em;
     width: 1.1em;  /* magic number to overlap the radio buttons on top of the stars */
     width: calc(var(--star-size) / 3 * 1.1em);
     color: #F2F3F4;
@@ -119,7 +120,11 @@ nav{
     color: transparent;  /* reveal the contour/white star from the HTML markup */
     cursor: inherit;  /* avoid a cursor transition from arrow/pointer to text selection */
   }
-  .rating > *:hover:before,
+  
+  .rating > legend:hover{
+    opacity: 1;
+    color: #424242;
+  }
   .rating > *:hover ~ label:before,
   .rating:not(:hover) > input:checked ~ label:before {
     content: "★";
@@ -127,6 +132,14 @@ nav{
     left: 0;
     color: gold;
   }
+  // .rating > *:hover:before,
+  // .rating > *:hover ~ label:before,
+  // .rating:not(:hover) > input:checked ~ label:before {
+  //   content: "★";
+  //   position: absolute;
+  //   left: 0;
+  //   color: gold;
+  // }
   .rating > input {
     position: relative;
     transform: scale(3);  /* make the radio buttons big; they don't inherit font-size */
