@@ -56,7 +56,10 @@ profile.post("/edit/:id", uploadCloud.single('photo'), (req, res) => {
     const avatarName = req.file ? req.file.photo : user.avatarName;
     const username = req.body.username != '' ? req.body.username : user.username;
     const email = req.body.email != '' ? req.body.email : user.email;
-    const { name, address, description} = req.body ? req.body : user;
+    const name = req.body.name != '' ? req.body.name : user.name;
+    const address = req.body.address != '' ? req.body.address : user.address;
+    const description = req.body.description != '' ? req.body.description : user.description;
+    // const { name, address, description} = req.body ? req.body : user;
     User.findByIdAndUpdate(req.params.id, {
       username,
       name,
@@ -70,7 +73,6 @@ profile.post("/edit/:id", uploadCloud.single('photo'), (req, res) => {
       res.redirect("/profile");
     });
   })
-xº
 });
 
 // confirmar servicio desde cleaner
