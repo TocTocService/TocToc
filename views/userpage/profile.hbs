@@ -1,12 +1,26 @@
-<h2>Hola {{user.username}}!</h2>
-
-<div>
-<div class="avatar">
-  <img src="{{user.avatarPath}}" alt="Avatar">
+{{!-- Info personal --}}
+<div class="profile-info">
+  <div class="container">
+    <h2>Hola {{user.username}}!</h2>
+    <div class="flexy">
+      <div class="personal-info">
+      <h3>Tu info personal:</h3>
+        <p><b>Usuario</b><br>  {{user.username}}</p>
+        <p><b>Nombre</b> <br> {{user.name}}</p>
+        <p><b>Email</b> <br> {{user.email}}</p>
+        {{#if user.isToc}}
+          <p>{{user.fee}}</p>
+        {{else}}
+          <p>Dirección.</b> {{user.address}}</p>
+        {{/if}}
+        <p>Algo sobre ti.</b> {{user.description}}</p>
+      </div>
+      <div class="avatar">
+        <img src="{{user.avatarPath}}" alt="Avatar">
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-
-
 
 {{!-- Servicios -----------------------------------}}
 <div class="container">

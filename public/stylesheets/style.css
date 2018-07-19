@@ -51,6 +51,17 @@ nav {
     margin: 0 50px; }
 
 /* PROFILE */
+.profile-info {
+  background: #F8FEFF;
+  margin-bottom: 50px; }
+  .profile-info .container {
+    padding: 40px; }
+    .profile-info .container .flexy {
+      display: flex;
+      flex-wrap: wrap; }
+      .profile-info .container .flexy .personal-info {
+        max-width: 60%; }
+
 .avatar img {
   width: 100px;
   height: 100px;

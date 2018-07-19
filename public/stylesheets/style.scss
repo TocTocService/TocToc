@@ -80,6 +80,25 @@ nav{
   }
 }
 /* PROFILE */
+.profile-info{
+  background: #F8FEFF;
+  margin-bottom: 50px;
+  
+  .container{
+  padding: 40px;
+
+  .flexy{
+    display: flex;
+    flex-wrap: wrap;
+
+    .personal-info{
+      max-width: 60%;
+    }
+
+  }
+  }
+}
+
 .avatar{
   img{
   width: 100px;
