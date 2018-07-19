@@ -1,75 +1,75 @@
-<h1>{{title}}</h1>
-<p>Hola {{user.username}}</p>
+<h2>Hola {{user.username}}!</h2>
 
+<div>
 <div class="avatar">
   <img src="{{user.avatarPath}}" alt="Avatar">
 </div>
-
-
-{{#if user.isToc}}
-<h3> INFO sobre tu servicio </h3>
-
-<p>
-  El precio por hora es:
-  <b>{{ user.fee }}€</b>
-</p>
-
-<h2>Tu rating es</h2>
-<div>
-  <p>{{totalRate}}</p>
 </div>
 
-<h4>Servicios por confirmar</h4>
-{{#each services}}
-      <li>
-        <h4> {{ serviceDate }} </h4>
 
-        <ul>
-          <li> <b>Para</b>: {{ user.username }} || <a href="/public/{{user._id}}">Ver ficha</a> </li>
-          <li> <b>Hora</b>: {{ serviceTime }} </li>
-             <li> <b>Estado</b>: {{ confirm }} </li>
-             
-        </ul>
 
-        {{#ifEquals this.confirm "Pendiente" this}}
-        <li><a href="/confirm/{{this._id}}">Confirma servicio</a></li>
-        <li><a href="/reject/{{this._id}}">Rechaza servicio</a></li>
-        {{/ifEquals}}
-      </li>
-  {{/each}}
-  
-{{else}}
-<h4>Servicios pendientes:</h4>
+{{!-- Servicios -----------------------------------}}
+<div class="container">
+{{#if user.isToc}}
+  <h3>Tus servicios</h3>
+  <p>El precio por hora es: <b>{{ user.fee }}€</b></p>
 
-<ul>
+  <h2>Tu rating es</h2>
+  <div>
+    <p>{{totalRate}}</p>
+  </div>
 
-  {{#if services}} 
+  <h3 class="text-center">Tus próximos servicios</h3>
+  <div class="services">
   {{#each services}}
-  
-
-{{!-- 
-    <ul>
-      <li>
-        <h4> {{ serviceDate }} </h4> --}}
-
-        
-           <p><b>TOC'leaner</b>: {{ this.cleaner.name }} </p>
-         <p> <b>Día</b>: {{ this.serviceDate }} </p>
-          <p><b>Hora</b>: {{ serviceTime }} </p>
-          <p><b>Estado</b>: {{ this.confirm }} </p>
-           <p><a href="/delete/{{this._id}}">Cancelar servicio</a>
-          
-        
-        {{#ifEquals this.confirm "Confirmado" this}}
-        {{#unless ../hasVoted}}
-        <p><a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a></p>
-        {{/unless}}
+    <div class="card">
+      <div class="card-header">
+        <a href="/public/{{user._id}}">
+          <h5><span class="small">La casa de</span> <b>{{user.username}}</b></h5>
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="card-title"><b>Fecha</b>: {{serviceDate}}</p>
+        <p class="card-text"><b>Hora</b>: {{serviceTime}}</p>
+        <p class="card-text"><b>Estado</b>: {{confirm}}</p>
+        <a href="/delete/{{this._id}}"Cancelar servicio</a>
+        {{#ifEquals this.confirm "Pendiente" this}}
+          <a href="/confirm/{{this._id}}" class="btn btn-primary">Confirma servicio</a>
+          <a href="/reject/{{this._id}}" class="btn btn-primary">Rechaza servicio</a>
         {{/ifEquals}}
+      </div>
+    </div>
+  {{/each}} 
+{{else}} 
+</div>
 
-     
+  <h3 class="text-center">Tus servicios pendientes</h3>
+  <div class="services">  
+  {{#if services}} 
+    {{#each services}}
+      <div class="card">
+        <div class="card-header">
+          <a href="/public/{{this.cleaner._id}}">
+            <h5><b>{{this.cleaner.name}}</b> <span class="small">es tu TOC'leaner</span></h5>
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="card-title"><b>Fecha</b>: {{ this.serviceDate }}</p>
+          <p class="card-text"><b>Hora</b>: {{ serviceTime }}</p>
+          <p class="card-text"><b>Estado</b>: {{ this.confirm }}</p>
+          <a href="/delete/{{this._id}}" class="btn btn-primary">Cancelar servicio</a>
+        </div>
       
-  {{/each}}
+      {{#ifEquals this.confirm "Confirmado" this}} 
+        {{#unless ../hasVoted}}
+          <a href="/rates/{{this.cleaner.id}}">Valora a tu TOC'leaner</a>
+        {{/unless}} 
+      {{/ifEquals}} 
+      </div>
+    {{/each}} 
+  {{/if}}
 {{/if}}
-</ul>
-{{/if}}
-<a href='/edit/{{user.id}}'>Edita tu perfil</a>
+</div>
+</div>
+
+  <a href='/edit/{{user.id}}'>Edita tu perfil</a>

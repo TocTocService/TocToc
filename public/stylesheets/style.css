@@ -14,6 +14,9 @@ a {
 h1 {
   font-weight: 700; }
 
+h3 {
+  font-weight: 800; }
+
 /* Blue Colors */
 /* MENU */
 nav {
@@ -53,6 +56,26 @@ nav {
   height: 100px;
   border-radius: 50%;
   border: 2px solid #26C6DA; }
+
+/* Services */
+.services {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+  .services .card {
+    min-width: 260px;
+    margin-top: 30px; }
+    .services .card .card-header {
+      background: #E0F7FA;
+      cursor: pointer; }
+      .services .card .card-header a {
+        text-decoration: none;
+        color: inherit; }
+      .services .card .card-header h5 {
+        margin: 4px 0; }
+    .services .card .card-header:hover {
+      background: #26C6DA;
+      color: #FFF; }
 
 /* Stars Rating */
 .rating {
