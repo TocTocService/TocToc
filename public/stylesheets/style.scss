@@ -191,10 +191,24 @@ nav {
 
 .form-h2 {
   text-align: center;
+  padding-top: 18vh;
+}
+
+.login{
+  margin: 20px auto 40px auto;
+}
+
+.form-padding{
   padding: 140px 0 20px 0;
 }
 .form-p {
   text-align: center;
+  background: #909090;
+  width: 25%;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px;
 }
 
 form {
@@ -305,13 +319,19 @@ padding: 100px 0;
   h2{
     text-align: center;
   }
+
+  .firma{
+    margin: 0 auto;
+    text-align: center;
+  }
 }
   
   .about-img{
     margin: 0 auto;
-    width: 60%;
-}
+    width: 50%;
+  }
 
+ 
 
 /* FOOTER */
 footer{

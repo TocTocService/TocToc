@@ -39,3 +39,6 @@ rating.post('/rates/:id', (req, res) => {
 });
 
 module.exports = rating;
+
+
+

@@ -22,3 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $("#geocomplete").trigger("geocode");
       });
       }, false);
+
+
+
