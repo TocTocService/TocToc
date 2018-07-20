@@ -21,7 +21,10 @@ h3 {
 /* MENU */
 .navbar {
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.37);
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.37); }
 
 nav {
   background: #26c6da;
@@ -61,7 +64,7 @@ nav {
 .profile-info {
   background: #f8feff;
   margin-bottom: 50px;
-  padding-top: 70px; }
+  padding: 70px 10% 20px 10%; }
   .profile-info .container {
     padding: 40px; }
     .profile-info .container .flexy {
@@ -96,14 +99,17 @@ nav {
     border-radius: 50%;
     margin-bottom: 30px; }
 
+.back {
+  margin-top: 30px; }
+
 /* Services */
 .services {
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
   .services .card {
-    min-width: 260px;
-    margin-top: 30px; }
+    min-width: 400px;
+    margin: 30px 20px; }
     .services .card .card-header {
       background: #26c6da;
       cursor: pointer; }
@@ -136,7 +142,14 @@ nav {
 /*signup*/
 .form-h2 {
   text-align: center;
-  padding-top: 10px; }
+  padding-top: 18vh; }
+
+.cajafirma {
+  padding-top: 25px;
+  margin: 0 auto; }
+
+.login {
+  margin: 20px auto 40px auto; }
 
 .form-padding {
   padding: 140px 0 20px 0; }
@@ -151,9 +164,9 @@ nav {
   padding: 5px; }
 
 form {
-  background: #e0f7fa;
-  max-width: 50%;
-  margin: 0 auto;
+  background: #edfafc;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
   padding: 20px;
   border-radius: 10px; }
   form .form-group {
@@ -163,7 +176,7 @@ form {
   form .paragraph {
     margin-top: 2px; }
   form .smalltext {
-    font-size: .7em;
+    font-size: .8em;
     text-align: right; }
   form .but {
     background: #26c6da;
@@ -176,10 +189,22 @@ form {
     background: gray;
     color: #FFF; }
 
+/* form icns */
+.icons {
+  display: flex;
+  justify-content: center; }
+  .icons img {
+    width: 95px;
+    height: 100%;
+    opacity: .3; }
+  .icons .icn-middle {
+    margin: 0 80px; }
+
 .pedirservices {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  margin-bottom: 100px; }
   .pedirservices .card {
     width: 40%; }
     .pedirservices .card .card-header {
@@ -212,7 +237,7 @@ form {
 
 /* ABOUT */
 .top-cont {
-  padding: 70px 0 20px;
+  padding: 20vh 5% 20px 5%;
   margin: 0 auto; }
   .top-cont h2 {
     text-align: center; }
@@ -226,6 +251,9 @@ form {
 
 /* FOOTER */
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   margin-top: 50px;
   padding: 5px 20px;
   background: #424242;
@@ -350,5 +378,34 @@ form.amp-form-submit-error [submit-error] {
       height: 120px; }
     .profile-info .container .flexy .avatar a {
       margin: 30px 0 50px 0; } }
+
+@media only screen and (max-width: 600px) {
+  .index {
+    padding: 0 50px; }
+    .index h1 {
+      font-size: 2em;
+      padding-bottom: 20px; }
+    .index h2 {
+      font-size: 1.6em; }
+    .index img {
+      width: 230px; }
+  .icons img {
+    width: 60px; }
+  .icons .icn-middle {
+    margin: 0 50px; }
+  .services .card {
+    min-width: 80%; } }
+
+@media only screen and (max-width: 500px) {
+  h3.text-center {
+    font-size: 1.3em; } }
+
+@media only screen and (max-width: 400px) {
+  .form-h2 {
+    padding-top: 95px; }
+  .index h2 {
+    font-size: 1.3em; }
+  .icons img {
+    opacity: 0; } }
 
 /*# sourceMappingURL=style.css.map */

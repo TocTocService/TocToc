@@ -6,17 +6,18 @@
       <div class="personal-info">
         <p class="hr-info"><b>Usuario</b><br>  {{user.username}}</p>
         <p><b>Nombre</b> <br> {{user.name}}</p>
+        <p><b>Algo sobre ti</b><br> {{user.description}}</p>
         <p><b>Email</b> <br> {{user.email}}</p>
         {{#if user.isToc}}
           <p><b>Tarifa</b><br>{{user.fee}} €/h</p>
+          <p><b>Valoración</b><br> {{totalRate}} estrellas</p>
         {{else}}
           <p><b>Dirección</b><br> {{user.address}}</p>
         {{/if}}
-        <p><b>Algo sobre ti</b><br> {{user.description}}</p>
       </div>
       <div class="avatar">
         <img src="{{user.avatarPath}}" alt="Avatar">
-        <a href='/edit/{{user.id}}' class="btn btn-primary">Editar</a>
+        <a href='/edit/{{user.id}}' class="btn btn-secondary">Editar</a>
       </div>
     </div>
   </div>
@@ -25,21 +26,13 @@
 {{!-- Servicios -----------------------------------}}
 <div class="container">
 {{#if user.isToc}}
-  {{!-- <h3>Tus servicios</h3>
-  <p>El precio por hora es: <b>{{ user.fee }}€</b></p>
-
-  <h2>Tu rating es</h2>
-  <div>
-    <p>{{totalRate}}</p>
-  </div> --}}
-
   <h3 class="text-center">Tus próximos servicios</h3>
   <div class="services">
   {{#each services}}
     <div class="card">
       <div class="card-header">
         <a href="/public/{{user._id}}">
-          <h5><span class="small">La casa de</span> <b>{{user.username}}</b></h5>
+          <h5><span class="small">La casa de</span> <b>{{user.name}}</b></h5>
         </a>
       </div>
       <div class="card-body">
@@ -48,8 +41,8 @@
         <p class="card-text"><b>Estado</b>: {{confirm}}</p>
         <a href="/delete/{{this._id}}"Cancelar servicio</a>
         {{#ifEquals this.confirm "Pendiente" this}}
-          <a href="/confirm/{{this._id}}" class="btn btn-primary">Confirma servicio</a>
-          <a href="/reject/{{this._id}}" class="btn btn-primary">Rechaza servicio</a>
+          <a href="/confirm/{{this._id}}" class="btn btn-success">Confirma servicio</a>
+          <a href="/reject/{{this._id}}" class="btn btn-danger">Rechaza servicio</a>
         {{/ifEquals}}
       </div>
     </div>
