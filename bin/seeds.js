@@ -18,7 +18,7 @@ const users = [
     email: "a@gmail.com",
     address: "Calle Buganvilla, 6. Madrid",
     isToc: false,
-    description,
+    description: "Helloooo, soy super desordenada y no me gusta nada limpiar. Necesito un TOC’leaner super top! Thanksss",
     avatarName,
     avatarPath
   },
