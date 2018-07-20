@@ -25,20 +25,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-function empezarDeCero() {
-  var yoga = - Frustration;
-  var menosTalks = + Tiempo;
-  var brujas = "";
-
-  if (yoga == true && menosTalks == true) {
-    return Paula & Anna;
-  } else {
-    return brujas;
-  }
-};
-
-
-
